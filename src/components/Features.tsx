@@ -1,15 +1,21 @@
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 const Features = () => {
+  const router = useRouter();
   return (
-    <div className="flex flex-col min-h-screen bg-yellow-300 py-24">
+    <div
+      className={`flex flex-col min-h-screen ${
+        router.pathname === '/' ? 'bg-yellow-300' : 'bg-white'
+      } py-24`}
+    >
       <h1 className="text-4xl mb-8 font-semibold text-center">Features</h1>
       <div
-        className="mx-8 grid place-content-center gap-16"
+        className="sm:mx-8 sm:grid sm:place-content-center sm:gap-16 flex flex-col gap-4 items-center text-center px-8 sm:text-left sm:items-start sm:px-0"
         style={{ gridTemplateColumns: 'auto auto' }}
       >
         <div className="flex flex-col items-center">
-          <div className="relative h-[400px] w-[400px]">
+          <div className="relative sm:h-[400px] sm:w-[400px] w-[200px] h-[200px]">
             <Image src="/calendar.svg" alt="calendar svg features" fill />
           </div>
           <h2 className="text-2xl font-semibold mb-4">
@@ -22,7 +28,7 @@ const Features = () => {
           </p>
         </div>
         <div className="flex flex-col items-center">
-          <div className="relative h-[400px] w-[400px]">
+          <div className="relative sm:h-[400px] sm:w-[400px] w-[200px] h-[200px]">
             <Image src="/shipping.svg" alt="shipping svg features" fill />
           </div>
           <h2 className="text-2xl font-semibold mb-4">
@@ -35,7 +41,7 @@ const Features = () => {
           </p>
         </div>
         <div className="flex flex-col items-center">
-          <div className="relative h-[400px] w-[400px]">
+          <div className="relative sm:h-[400px] sm:w-[400px] w-[200px] h-[200px]">
             <Image src="/clock.svg" alt="clock svg features" fill />
           </div>
           <h2 className="text-2xl font-semibold mb-4">
@@ -49,7 +55,7 @@ const Features = () => {
           </p>
         </div>
         <div className="flex flex-col items-center">
-          <div className="relative h-[400px] w-[400px]">
+          <div className="relative sm:h-[400px] sm:w-[400px] w-[200px] h-[200px]">
             <Image src="/track.svg" alt="track svg features" fill />
           </div>
           <h2 className="text-2xl font-semibold mb-4">Real Time Tracking</h2>
@@ -61,7 +67,7 @@ const Features = () => {
           </p>
         </div>
         <div className="flex flex-col items-center">
-          <div className="relative h-[400px] w-[400px]">
+          <div className="relative sm:h-[400px] sm:w-[400px] w-[200px] h-[200px]">
             <Image src="/warehouse.svg" alt="warehouse svg features" fill />
           </div>
           <h2 className="text-2xl font-semibold mb-4">
