@@ -1,10 +1,48 @@
 import { useRouter } from 'next/router';
+import { useState } from 'react';
 
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
+import { IShipmentDataDHL, IShipmentDataSkynet } from '@/utils/types';
 
 const SMP = () => {
   const router = useRouter();
+  const [id, setId] = useState<string>('');
+  const [shipmentData, setShipmentData] = useState<
+    IShipmentDataDHL[] | IShipmentDataSkynet[]
+  >();
+  const [isLoading, setIsLoading] = useState(false);
+
+  const getShipmentData = async () => {
+    try {
+      setIsLoading(true);
+      const res = await fetch('/api/get-shipment-data', {
+        method: 'POST',
+        body: JSON.stringify({
+          id: id,
+        }),
+      });
+      if (res.status === 200) {
+        const data = await res.json();
+        if (data.shipmentData.service === 'Skynet') {
+          setShipmentData(
+            data.shipmentData.trackingInfo as IShipmentDataSkynet[]
+          );
+        } else if (data.shipmentData.service === 'DHL') {
+          setShipmentData(
+            data.shipmentData.trackingInfo[0].events as IShipmentDataDHL[]
+          );
+        }
+      }
+    } catch (err) {
+      console.error(err);
+      alert('Something went wrong');
+    } finally {
+      setIsLoading(false);
+      setId('');
+    }
+  };
+
   return (
     <>
       <Navbar />
@@ -16,9 +54,15 @@ const SMP = () => {
           type="text"
           className="rounded-md px-4 py-1 text-lg border-2 focus:outline-none shadow-md focus:border-orange-500 transition-colors mb-4 sm:w-1/3 w-full"
           placeholder="Enter Tracking Number"
+          value={id}
+          onChange={(e) => setId(e.target.value)}
         />
         <div className="flex sm:w-1/3 flex-col sm:flex-row gap-8 sm:gap-0 justify-between">
-          <button className="bg-yellow-300 rounded-md py-2 px-4 hover:bg-orange-500 transition-colors hover:text-white">
+          <button
+            className="bg-yellow-300 rounded-md py-2 px-4 hover:bg-orange-500 transition-colors hover:text-white disabled:bg-slate-300 disabled:cursor-not-allowed disabled:text-black"
+            disabled={id.length === 0 || isLoading}
+            onClick={getShipmentData}
+          >
             Track Now
           </button>
           <button
@@ -28,6 +72,52 @@ const SMP = () => {
             Multi Track
           </button>
         </div>
+        {shipmentData && (
+          <table className="table-auto w-full border-spacing-6 mt-16 border-2 shadow-lg rounded-md">
+            <thead>
+              <tr>
+                <th className="py-4 border">Date</th>
+                <th className="py-4 border">Status</th>
+                <th className="py-4 border">Remarks</th>
+              </tr>
+            </thead>
+            <tbody>
+              {shipmentData?.map((item, idx) => {
+                if (Object.hasOwn(item, 'ShipDate')) {
+                  return (
+                    <tr key={idx} className=" border ">
+                      <td className="w-1/3 py-4 border text-center">
+                        {'ShipDate' in item && item.ShipDate}
+                      </td>
+                      <td className="w-1/3 py-4 border text-center">
+                        {'Status' in item && item.Status}
+                      </td>
+                      <td className="w-1/3 py-4 border text-center">
+                        {'Remarks' in item && item.Remarks}
+                      </td>
+                    </tr>
+                  );
+                }
+                if (Object.hasOwn(item, 'timestamp')) {
+                  return (
+                    <tr key={idx} className=" border ">
+                      <td className="w-1/3 py-4 border text-center">
+                        {'timestamp' in item && item.timestamp.split('T')[0]}
+                      </td>
+                      <td className="w-1/3 py-4 border text-center">
+                        {'location' in item &&
+                          item.location.address.addressLocality}
+                      </td>
+                      <td className="w-1/3 py-4 border text-center">
+                        {'description' in item && item.description}
+                      </td>
+                    </tr>
+                  );
+                }
+              })}
+            </tbody>
+          </table>
+        )}
       </div>
       <Footer />
     </>

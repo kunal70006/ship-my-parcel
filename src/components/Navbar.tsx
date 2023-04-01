@@ -59,11 +59,11 @@ const Navbar = () => {
                 SMP Tracking
               </button>
             </Link>
-            <Link href="/awb-tracking">
+            {/* <Link href="/awb-tracking">
               <button className="bg-white rounded-md py-2 px-4 hover:bg-orange-500 transition-colors hover:text-white">
                 AWB Tracking
               </button>
-            </Link>
+            </Link> */}
           </div>
         ) : (
           <Hamburger size={24} toggled={isOpen} toggle={setIsOpen} />
@@ -113,11 +113,11 @@ const Navbar = () => {
                 SMP Tracking
               </button>
             </Link>
-            <Link href="/awb-tracking">
+            {/* <Link href="/awb-tracking">
               <button className="bg-white rounded-md py-2 px-4 hover:bg-orange-500 transition-colors hover:text-white">
                 AWB Tracking
               </button>
-            </Link>
+            </Link> */}
           </div>
         </div>
       )}
