@@ -29,7 +29,6 @@ const SMP = () => {
       });
       if (res.status === 200) {
         const data = await res.json();
-        console.log(data);
         const detailsObj = {
           name: data.shipmentData?.name,
           address: data.shipmentData?.address,

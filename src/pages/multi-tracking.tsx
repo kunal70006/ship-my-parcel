@@ -32,8 +32,6 @@ const MultiTracking = () => {
       const dhlArr: IMultiTrackingDHL[] = [];
       const skynetArr: IMultiTrackingSkynet[] = [];
 
-      console.log(data.shipmentData);
-
       data.shipmentData.map((item: any) => {
         if (item.service === 'Skynet') {
           const userDetails = {

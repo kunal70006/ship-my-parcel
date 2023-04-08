@@ -24,7 +24,7 @@ export default async function fedex(trackingNumber: string) {
     },
     function (err: any, res: any) {
       if (err) {
-        return console.log(err);
+        return console.error(err);
       }
       return res;
     }
