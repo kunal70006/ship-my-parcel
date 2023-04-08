@@ -1,5 +1,4 @@
 import {
-  addDoc,
   collection,
   doc,
   getDocs,
@@ -24,12 +23,15 @@ export default async function handler(
   const { body } = req;
   const reqBody: IReqBody = JSON.parse(body);
   let data = undefined;
+  // checking if shipment already exists or not
   const q = query(dbInstance, where('awbId', '==', reqBody.shipment.awbId));
   const querySnapshot = await getDocs(q);
 
   querySnapshot.forEach((doc) => {
     res.status(200).json({ smpID: doc.data().trackingId });
+    return;
   });
+  // sending data to firebase
   try {
     switch (reqBody.shipment.service) {
       case 'DHL': {

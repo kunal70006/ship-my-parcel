@@ -1,3 +1,4 @@
+import moment from 'moment';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 
@@ -12,6 +13,10 @@ const SMP = () => {
     IShipmentDataDHL[] | IShipmentDataSkynet[]
   >();
   const [isLoading, setIsLoading] = useState(false);
+  const [userDetails, setUserDetails] = useState({
+    name: '',
+    address: '',
+  });
 
   const getShipmentData = async () => {
     try {
@@ -24,6 +29,12 @@ const SMP = () => {
       });
       if (res.status === 200) {
         const data = await res.json();
+        console.log(data);
+        const detailsObj = {
+          name: data.shipmentData?.name,
+          address: data.shipmentData?.address,
+        };
+        setUserDetails(detailsObj);
         if (data.shipmentData.service === 'Skynet') {
           setShipmentData(
             data.shipmentData.trackingInfo as IShipmentDataSkynet[]
@@ -73,50 +84,66 @@ const SMP = () => {
           </button>
         </div>
         {shipmentData && (
-          <table className="table-auto w-full border-spacing-6 mt-16 border-2 shadow-lg rounded-md">
-            <thead>
-              <tr>
-                <th className="py-4 border">Date</th>
-                <th className="py-4 border">Status</th>
-                <th className="py-4 border">Remarks</th>
-              </tr>
-            </thead>
-            <tbody>
-              {shipmentData?.map((item, idx) => {
-                if (Object.hasOwn(item, 'ShipDate')) {
-                  return (
-                    <tr key={idx} className=" border ">
-                      <td className="w-1/3 py-4 border text-center">
-                        {'ShipDate' in item && item.ShipDate}
-                      </td>
-                      <td className="w-1/3 py-4 border text-center">
-                        {'Status' in item && item.Status}
-                      </td>
-                      <td className="w-1/3 py-4 border text-center">
-                        {'Remarks' in item && item.Remarks}
-                      </td>
-                    </tr>
-                  );
-                }
-                if (Object.hasOwn(item, 'timestamp')) {
-                  return (
-                    <tr key={idx} className=" border ">
-                      <td className="w-1/3 py-4 border text-center">
-                        {'timestamp' in item && item.timestamp.split('T')[0]}
-                      </td>
-                      <td className="w-1/3 py-4 border text-center">
-                        {'location' in item &&
-                          item.location.address.addressLocality}
-                      </td>
-                      <td className="w-1/3 py-4 border text-center">
-                        {'description' in item && item.description}
-                      </td>
-                    </tr>
-                  );
-                }
-              })}
-            </tbody>
-          </table>
+          <>
+            {userDetails && (
+              <>
+                <h1 className="mt-8 font-semibold text-xl">
+                  Consignee Name: {userDetails.name}
+                </h1>
+                <h1 className="font-semibold text-xl">
+                  Consignee Address: {userDetails.address}
+                </h1>
+              </>
+            )}
+            <table className="table-auto w-full border-spacing-6 mt-16 border-2 shadow-lg rounded-md">
+              <thead>
+                <tr>
+                  <th className="py-4 border">Date</th>
+                  <th className="py-4 border">Status</th>
+                  <th className="py-4 border">Remarks</th>
+                </tr>
+              </thead>
+              <tbody>
+                {shipmentData?.map((item, idx) => {
+                  if (Object.hasOwn(item, 'ShipDate')) {
+                    return (
+                      <tr key={idx} className=" border ">
+                        <td className="w-1/3 py-4 border text-center">
+                          {'ShipDate' in item &&
+                            moment(item.ShipDate).format('dddd, MMMM Do YYYY')}
+                        </td>
+                        <td className="w-1/3 py-4 border text-center">
+                          {'Status' in item && item.Status}
+                        </td>
+                        <td className="w-1/3 py-4 border text-center">
+                          {'Remarks' in item && item.Remarks}
+                        </td>
+                      </tr>
+                    );
+                  }
+                  if (Object.hasOwn(item, 'timestamp')) {
+                    return (
+                      <tr key={idx} className=" border ">
+                        <td className="w-1/3 py-4 border text-center">
+                          {'timestamp' in item &&
+                            moment(item.timestamp).format(
+                              'dddd, MMMM Do YYYY, h:mm a'
+                            )}
+                        </td>
+                        <td className="w-1/3 py-4 border text-center">
+                          {'location' in item &&
+                            item.location.address.addressLocality}
+                        </td>
+                        <td className="w-1/3 py-4 border text-center">
+                          {'description' in item && item.description}
+                        </td>
+                      </tr>
+                    );
+                  }
+                })}
+              </tbody>
+            </table>
+          </>
         )}
       </div>
       <Footer />

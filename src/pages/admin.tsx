@@ -9,6 +9,8 @@ const AWB = () => {
   const [info, setInfo] = useState<IShipment>({
     id: '',
     service: 'DHL',
+    name: '',
+    address: '',
   });
   const [isLoading, setIsLoading] = useState(false);
   const [ID, setID] = useState('');
@@ -24,6 +26,8 @@ const AWB = () => {
             trackingId: trackingId,
             service: info.service,
             awbId: info.id.trim(),
+            name: info.name.trim(),
+            address: info.address.trim(),
           },
         }),
       });
@@ -36,7 +40,7 @@ const AWB = () => {
       alert('Something went wrong');
     } finally {
       setIsLoading(false);
-      setInfo({ id: '', service: 'DHL' });
+      setInfo({ id: '', service: 'DHL', name: '', address: '' });
     }
   };
 
@@ -56,6 +60,24 @@ const AWB = () => {
             setInfo((state) => ({ ...state, id: e.target.value }))
           }
         />
+        <input
+          type="text"
+          className="rounded-md px-4 py-1 text-lg border-2 focus:outline-none shadow-md focus:border-orange-500 transition-colors mb-4 sm:w-1/4 w-full"
+          placeholder="Enter Consignee name"
+          value={info.name}
+          onChange={(e) =>
+            setInfo((state) => ({ ...state, name: e.target.value }))
+          }
+        />
+        <input
+          type="text"
+          className="rounded-md px-4 py-1 text-lg border-2 focus:outline-none shadow-md focus:border-orange-500 transition-colors mb-4 sm:w-1/4 w-full"
+          placeholder="Enter Consignee address"
+          value={info.address}
+          onChange={(e) =>
+            setInfo((state) => ({ ...state, address: e.target.value }))
+          }
+        />
         <select
           className="rounded-md px-4 py-1 text-lg border-2 focus:outline-none shadow-md focus:border-orange-500 transition-colors mb-4 sm:w-1/4 w-full"
           onChange={(e) =>
@@ -68,12 +90,17 @@ const AWB = () => {
         >
           <option value="DHL">DHL</option>
           <option value="Skynet">Skynet</option>
-          <option value="Fedex">Fedex</option>
+          {/* <option value="Fedex">Fedex</option> */}
         </select>
         <button
           onClick={handleGenerate}
           className="bg-yellow-300 rounded-md py-2 px-4 hover:bg-orange-500 transition-colors hover:text-white disabled:bg-slate-300 disabled:cursor-not-allowed disabled:text-black"
-          disabled={isLoading || info.id.length === 0}
+          disabled={
+            isLoading ||
+            info.id.length === 0 ||
+            info.address.length === 0 ||
+            info.name.length === 0
+          }
         >
           Generate
         </button>

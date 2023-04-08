@@ -1,6 +1,8 @@
 export interface IShipment {
   id: string;
   service: IService;
+  name: string;
+  address: string;
 }
 
 export interface IReqBody {
@@ -8,6 +10,8 @@ export interface IReqBody {
     trackingId: string;
     service: IService;
     awbId: string;
+    name: string;
+    address: string;
   };
 }
 
@@ -27,4 +31,14 @@ export interface IShipmentDataDHL {
     };
   };
   timestamp: string;
+}
+
+export interface IMultiTrackingSkynet {
+  trackingInfo: IShipmentDataSkynet[];
+  userDetails: { name: string; address: string };
+}
+
+export interface IMultiTrackingDHL {
+  trackingInfo: IShipmentDataDHL[];
+  userDetails: { name: string; address: string };
 }
