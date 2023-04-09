@@ -47,7 +47,8 @@ export default async function handler(
         }
         case 'Fedex': {
           const res = await fedex(reqBody.shipment.awbId);
-          console.log(res);
+          data = res.output.completeTrackResults;
+
           break;
         }
         default:
@@ -57,6 +58,7 @@ export default async function handler(
         ...reqBody.shipment,
         trackingInfo: data,
       };
+
       await setDoc(doc(dbInstance), finalData);
       res.status(200).json({ smpID: reqBody.shipment.trackingId });
     } catch (err) {

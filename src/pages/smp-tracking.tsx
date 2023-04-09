@@ -4,13 +4,17 @@ import { useState } from 'react';
 
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
-import { IShipmentDataDHL, IShipmentDataSkynet } from '@/utils/types';
+import {
+  IShipmentDataDHL,
+  IShipmentDataFedex,
+  IShipmentDataSkynet,
+} from '@/utils/types';
 
 const SMP = () => {
   const router = useRouter();
   const [id, setId] = useState<string>('');
   const [shipmentData, setShipmentData] = useState<
-    IShipmentDataDHL[] | IShipmentDataSkynet[]
+    IShipmentDataDHL[] | IShipmentDataSkynet[] | IShipmentDataFedex[]
   >();
   const [isLoading, setIsLoading] = useState(false);
   const [userDetails, setUserDetails] = useState({
@@ -41,6 +45,10 @@ const SMP = () => {
         } else if (data.shipmentData.service === 'DHL') {
           setShipmentData(
             data.shipmentData.trackingInfo[0].events as IShipmentDataDHL[]
+          );
+        } else if (data.shipmentData.service === 'Fedex') {
+          setShipmentData(
+            data.shipmentData.trackingInfo[0].trackResults[0].scanEvents
           );
         }
       }
@@ -135,6 +143,26 @@ const SMP = () => {
                         </td>
                         <td className="w-1/3 py-4 border text-center">
                           {'description' in item && item.description}
+                        </td>
+                      </tr>
+                    );
+                  }
+                  if (Object.hasOwn(item, 'scanLocation')) {
+                    return (
+                      <tr key={idx} className=" border ">
+                        <td className="w-1/3 py-4 border text-center">
+                          {'date' in item &&
+                            moment(item.date).format(
+                              'dddd, MMMM Do YYYY, h:mm a'
+                            )}
+                        </td>
+                        <td className="w-1/3 py-4 border text-center">
+                          {'derivedStatus' in item && item.derivedStatus} -{' '}
+                          {'scanLocation' in item && item.scanLocation.city}
+                        </td>
+                        <td className="w-1/3 py-4 border text-center">
+                          {'exceptionDescription' in item &&
+                            item.exceptionDescription}
                         </td>
                       </tr>
                     );

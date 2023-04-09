@@ -33,6 +33,15 @@ export interface IShipmentDataDHL {
   timestamp: string;
 }
 
+export interface IShipmentDataFedex {
+  date: string;
+  derivedStatus: string;
+  exceptionDescription: string;
+  scanLocation: {
+    city: string;
+  };
+}
+
 export interface IMultiTrackingSkynet {
   trackingInfo: IShipmentDataSkynet[];
   userDetails: { name: string; address: string };
@@ -40,5 +49,10 @@ export interface IMultiTrackingSkynet {
 
 export interface IMultiTrackingDHL {
   trackingInfo: IShipmentDataDHL[];
+  userDetails: { name: string; address: string };
+}
+
+export interface IMultiTrackingFedex {
+  trackingInfo: IShipmentDataFedex[];
   userDetails: { name: string; address: string };
 }

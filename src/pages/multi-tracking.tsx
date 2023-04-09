@@ -4,7 +4,11 @@ import { useState } from 'react';
 
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
-import { IMultiTrackingDHL, IMultiTrackingSkynet } from '@/utils/types';
+import {
+  IMultiTrackingDHL,
+  IMultiTrackingFedex,
+  IMultiTrackingSkynet,
+} from '@/utils/types';
 
 const MultiTracking = () => {
   const router = useRouter();
@@ -15,6 +19,9 @@ const MultiTracking = () => {
   const [dhlShipmentData, setDhlShipmentData] = useState<IMultiTrackingDHL[]>(
     []
   );
+  const [fedexShipmentData, setFedexShipmentData] = useState<
+    IMultiTrackingFedex[]
+  >([]);
   const [isLoading, setIsLoading] = useState(false);
 
   const getShipmentData = async () => {
@@ -31,6 +38,7 @@ const MultiTracking = () => {
 
       const dhlArr: IMultiTrackingDHL[] = [];
       const skynetArr: IMultiTrackingSkynet[] = [];
+      const fedexArr: IMultiTrackingFedex[] = [];
 
       data.shipmentData.map((item: any) => {
         if (item.service === 'Skynet') {
@@ -51,11 +59,21 @@ const MultiTracking = () => {
             trackingInfo: item.trackingInfo[0].events,
             userDetails: userDetails,
           });
+        } else if (item.service === 'Fedex') {
+          const userDetails = {
+            name: item.name,
+            address: item.address,
+          };
+          fedexArr.push({
+            trackingInfo: item.trackingInfo[0].trackResults[0].scanEvents,
+            userDetails: userDetails,
+          });
         }
       });
 
       if (dhlArr.length > 0) setDhlShipmentData(dhlArr);
       if (skynetArr.length > 0) setSkynetShipmentData(skynetArr);
+      if (fedexArr.length > 0) setFedexShipmentData(fedexArr);
     } catch (err) {
       console.error(err);
       alert('Something went wrong');
@@ -174,6 +192,48 @@ const MultiTracking = () => {
                       </td>
                       <td className="w-1/3 py-4 border text-center">
                         {item.description}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </>
+          ))}
+        {fedexShipmentData &&
+          fedexShipmentData?.map((shipment, idx) => (
+            <>
+              {shipment.userDetails && (
+                <>
+                  <h1 className="mt-8 font-semibold text-xl">
+                    Consignee Name: {shipment.userDetails.name}
+                  </h1>
+                  <h1 className="font-semibold text-xl">
+                    Consignee Address: {shipment.userDetails.address}
+                  </h1>
+                </>
+              )}
+              <table
+                className="table-auto w-full border-spacing-6 mt-16 border-2 shadow-lg rounded-md"
+                key={idx}
+              >
+                <thead>
+                  <tr>
+                    <th className="py-4 border">Date</th>
+                    <th className="py-4 border">Status</th>
+                    <th className="py-4 border">Remarks</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {shipment.trackingInfo.map((item, i) => (
+                    <tr key={i} className=" border ">
+                      <td className="w-1/3 py-4 border text-center">
+                        {moment(item.date).format('dddd, MMMM Do YYYY, h:mm a')}
+                      </td>
+                      <td className="w-1/3 py-4 border text-center">
+                        {item.derivedStatus} - {item.scanLocation.city}
+                      </td>
+                      <td className="w-1/3 py-4 border text-center">
+                        {item.exceptionDescription}
                       </td>
                     </tr>
                   ))}
