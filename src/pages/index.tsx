@@ -6,7 +6,17 @@ import Navbar from '@/components/Navbar';
 import Solutions from '@/components/Solutions';
 import Script from 'next/script';
 
+import { useEffect } from 'react';
+
 const Home = () => {
+  useEffect(() => {
+    setTimeout(() => {
+      const toast = document.getElementById('toast');
+      if (toast) {
+        toast.style.display = 'none';
+      }
+    }, 5000);
+  }, []);
   return (
     <>
       <Script
@@ -26,6 +36,16 @@ const Home = () => {
       </Script>
 
       <div className="relative">
+        <div
+          id="toast"
+          className="fixed z-[9999] px-4 py-2 bg-white border rounded-md drop-shadow-md top-4 left-0 right-0 m-auto w-fit"
+        >
+          <h1 className=" text-lg ">
+            Tracking IDs have been reset due to some technical issue.
+            <br />
+            Kindly contact your sales representative for more information.
+          </h1>
+        </div>
         <Navbar />
         <video
           autoPlay
