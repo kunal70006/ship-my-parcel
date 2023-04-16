@@ -22,6 +22,7 @@ const SMP = () => {
     address: '',
     actualWeight: '',
     volWeight: '',
+    trackingId: '',
   });
 
   const getShipmentData = async () => {
@@ -40,6 +41,7 @@ const SMP = () => {
           address: data.shipmentData?.address,
           actualWeight: data.shipmentData?.actualWeight,
           volWeight: data.shipmentData?.volWeight,
+          trackingId: data.shipmentData?.trackingId,
         };
         setUserDetails(detailsObj);
         if (data.shipmentData.service === 'Skynet') {
@@ -61,7 +63,6 @@ const SMP = () => {
       alert('Something went wrong');
     } finally {
       setIsLoading(false);
-      setId('');
     }
   };
 
@@ -110,6 +111,9 @@ const SMP = () => {
                 <h1 className="font-semibold text-xl">
                   Volumetric Weight: {userDetails.volWeight}
                 </h1>
+                <h1 className="font-semibold text-xl">
+                  Tracking ID: {userDetails.trackingId}
+                </h1>
               </>
             )}
             <table className="table-auto w-full border-spacing-6 mt-16 border-2 shadow-lg rounded-md">
@@ -127,7 +131,9 @@ const SMP = () => {
                       <tr key={idx} className=" border ">
                         <td className="w-1/3 py-4 border text-center">
                           {'ShipDate' in item &&
-                            moment(item.ShipDate).format('dddd, MMMM Do YYYY')}
+                            moment(item.ShipDate, 'DD/MM/YYYY').format(
+                              'MMMM DD, YYYY'
+                            )}
                         </td>
                         <td className="w-1/3 py-4 border text-center">
                           {'Status' in item && item.Status}

@@ -85,7 +85,6 @@ const MultiTracking = () => {
       alert('Something went wrong');
     } finally {
       setIsLoading(false);
-      setIds('');
     }
   };
 
@@ -153,7 +152,9 @@ const MultiTracking = () => {
                   {shipment.trackingInfo.map((item, idx) => (
                     <tr key={idx} className=" border ">
                       <td className="w-1/3 py-4 border text-center">
-                        {moment(item.ShipDate).format('dddd, MMMM Do YYYY')}
+                        {moment(item.ShipDate, 'DD/MM/YYYY').format(
+                          'MMMM DD, YYYY'
+                        )}
                       </td>
                       <td className="w-1/3 py-4 border text-center text-black">
                         {item.Status}
