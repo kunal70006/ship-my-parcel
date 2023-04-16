@@ -4,19 +4,21 @@ import Footer from '@/components/Footer';
 import HowItWorksAndPartners from '@/components/HowItWorksAndPartners';
 import Navbar from '@/components/Navbar';
 import Solutions from '@/components/Solutions';
+import { useWindowSize } from '@/utils/useWindowResize';
 import Script from 'next/script';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const Home = () => {
   useEffect(() => {
     setTimeout(() => {
-      const toast = document.getElementById('toast');
-      if (toast) {
-        toast.style.display = 'none';
-      }
-    }, 5000);
+      setToggleBanner(false);
+    }, 10000);
   }, []);
+
+  const [toggleBanner, setToggleBanner] = useState(true);
+  const [width] = useWindowSize();
+
   return (
     <>
       <Script
@@ -36,16 +38,26 @@ const Home = () => {
       </Script>
 
       <div className="relative">
-        <div
-          id="toast"
-          className="fixed z-[9999] px-4 py-2 bg-white border rounded-md drop-shadow-md top-4 left-0 right-0 m-auto w-fit"
-        >
-          <h1 className=" text-lg ">
-            Tracking IDs have been reset due to some technical issue.
-            <br />
-            Kindly contact your sales representative for more information.
-          </h1>
-        </div>
+        {toggleBanner && (
+          <div
+            id="toast"
+            className={`fixed z-[9999] px-4 py-2 bg-white border rounded-md drop-shadow-md left-0 right-0 m-auto w-fit flex items-start ${
+              width > 800 ? 'top-4' : 'top-1/2'
+            }`}
+          >
+            <h1 className=" text-lg ">
+              Tracking IDs have been reset due to some technical issue.
+              <br />
+              Kindly contact your sales representative for more information.
+            </h1>
+            <div
+              className="rounded-full border px-2 cursor-pointer"
+              onClick={() => setToggleBanner(false)}
+            >
+              <h1 className="text-lg">X</h1>
+            </div>
+          </div>
+        )}
         <Navbar />
         <video
           autoPlay
