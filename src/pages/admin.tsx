@@ -11,6 +11,8 @@ const AWB = () => {
     service: 'DHL',
     name: '',
     address: '',
+    actualWeight: '',
+    volWeight: '',
   });
   const [isLoading, setIsLoading] = useState(false);
   const [ID, setID] = useState('');
@@ -28,6 +30,8 @@ const AWB = () => {
             awbId: info.id.trim(),
             name: info.name.trim(),
             address: info.address.trim(),
+            actualWeight: info.actualWeight.trim(),
+            volWeight: info.volWeight.trim(),
           },
         }),
       });
@@ -40,7 +44,14 @@ const AWB = () => {
       alert('Something went wrong');
     } finally {
       setIsLoading(false);
-      setInfo({ id: '', service: 'DHL', name: '', address: '' });
+      setInfo({
+        id: '',
+        service: 'DHL',
+        name: '',
+        address: '',
+        actualWeight: '',
+        volWeight: '',
+      });
     }
   };
 
@@ -76,6 +87,24 @@ const AWB = () => {
           value={info.address}
           onChange={(e) =>
             setInfo((state) => ({ ...state, address: e.target.value }))
+          }
+        />
+        <input
+          type="text"
+          className="rounded-md px-4 py-1 text-lg border-2 focus:outline-none shadow-md focus:border-orange-500 transition-colors mb-4 sm:w-1/4 w-full"
+          placeholder="Enter Actual Weight"
+          value={info.actualWeight}
+          onChange={(e) =>
+            setInfo((state) => ({ ...state, actualWeight: e.target.value }))
+          }
+        />
+        <input
+          type="text"
+          className="rounded-md px-4 py-1 text-lg border-2 focus:outline-none shadow-md focus:border-orange-500 transition-colors mb-4 sm:w-1/4 w-full"
+          placeholder="Enter Volumetric Weight"
+          value={info.volWeight}
+          onChange={(e) =>
+            setInfo((state) => ({ ...state, volWeight: e.target.value }))
           }
         />
         <select

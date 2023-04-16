@@ -20,6 +20,8 @@ const SMP = () => {
   const [userDetails, setUserDetails] = useState({
     name: '',
     address: '',
+    actualWeight: '',
+    volWeight: '',
   });
 
   const getShipmentData = async () => {
@@ -36,6 +38,8 @@ const SMP = () => {
         const detailsObj = {
           name: data.shipmentData?.name,
           address: data.shipmentData?.address,
+          actualWeight: data.shipmentData?.actualWeight,
+          volWeight: data.shipmentData?.volWeight,
         };
         setUserDetails(detailsObj);
         if (data.shipmentData.service === 'Skynet') {
@@ -99,6 +103,12 @@ const SMP = () => {
                 </h1>
                 <h1 className="font-semibold text-xl">
                   Consignee Address: {userDetails.address}
+                </h1>
+                <h1 className="font-semibold text-xl">
+                  Actual Weight: {userDetails.actualWeight}
+                </h1>
+                <h1 className="font-semibold text-xl">
+                  Volumetric Weight: {userDetails.volWeight}
                 </h1>
               </>
             )}

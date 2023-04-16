@@ -45,6 +45,8 @@ const MultiTracking = () => {
           const userDetails = {
             name: item.name,
             address: item.address,
+            actualWeight: item.actualWeight,
+            volWeight: item.volWeight,
           };
           skynetArr.push({
             trackingInfo: item.trackingInfo,
@@ -54,6 +56,8 @@ const MultiTracking = () => {
           const userDetails = {
             name: item.name,
             address: item.address,
+            actualWeight: item.actualWeight,
+            volWeight: item.volWeight,
           };
           dhlArr.push({
             trackingInfo: item.trackingInfo[0].events,
@@ -63,6 +67,8 @@ const MultiTracking = () => {
           const userDetails = {
             name: item.name,
             address: item.address,
+            actualWeight: item.actualWeight,
+            volWeight: item.volWeight,
           };
           fedexArr.push({
             trackingInfo: item.trackingInfo[0].trackResults[0].scanEvents,
@@ -124,6 +130,12 @@ const MultiTracking = () => {
                   <h1 className="font-semibold text-xl">
                     Consignee Address: {shipment.userDetails.address}
                   </h1>
+                  <h1 className="font-semibold text-xl">
+                    Actual Weight: {shipment.userDetails.actualWeight}
+                  </h1>
+                  <h1 className="font-semibold text-xl">
+                    Volumetric Weight: {shipment.userDetails.volWeight}
+                  </h1>
                 </>
               )}
               <table
@@ -165,6 +177,12 @@ const MultiTracking = () => {
                   </h1>
                   <h1 className="font-semibold text-xl">
                     Consignee Address: {shipment.userDetails.address}
+                  </h1>
+                  <h1 className="font-semibold text-xl">
+                    Actual Weight: {shipment.userDetails.actualWeight}
+                  </h1>
+                  <h1 className="font-semibold text-xl">
+                    Volumetric Weight: {shipment.userDetails.volWeight}
                   </h1>
                 </>
               )}
@@ -209,6 +227,12 @@ const MultiTracking = () => {
                   </h1>
                   <h1 className="font-semibold text-xl">
                     Consignee Address: {shipment.userDetails.address}
+                  </h1>
+                  <h1 className="font-semibold text-xl">
+                    Actual Weight: {shipment.userDetails.actualWeight}
+                  </h1>
+                  <h1 className="font-semibold text-xl">
+                    Volumetric Weight: {shipment.userDetails.volWeight}
                   </h1>
                 </>
               )}

@@ -3,6 +3,8 @@ export interface IShipment {
   service: IService;
   name: string;
   address: string;
+  actualWeight: string;
+  volWeight: string;
 }
 
 export interface IReqBody {
@@ -12,6 +14,8 @@ export interface IReqBody {
     awbId: string;
     name: string;
     address: string;
+    actualWeight: string;
+    volWeight: string;
   };
 }
 
@@ -44,15 +48,30 @@ export interface IShipmentDataFedex {
 
 export interface IMultiTrackingSkynet {
   trackingInfo: IShipmentDataSkynet[];
-  userDetails: { name: string; address: string };
+  userDetails: {
+    name: string;
+    address: string;
+    actualWeight: string;
+    volWeight: string;
+  };
 }
 
 export interface IMultiTrackingDHL {
   trackingInfo: IShipmentDataDHL[];
-  userDetails: { name: string; address: string };
+  userDetails: {
+    name: string;
+    address: string;
+    actualWeight: string;
+    volWeight: string;
+  };
 }
 
 export interface IMultiTrackingFedex {
   trackingInfo: IShipmentDataFedex[];
-  userDetails: { name: string; address: string };
+  userDetails: {
+    name: string;
+    address: string;
+    actualWeight: string;
+    volWeight: string;
+  };
 }
