@@ -8,9 +8,6 @@ import {
 } from 'firebase/firestore';
 import { NextApiRequest, NextApiResponse } from 'next';
 
-import dhl from '@/utils/dhl';
-import fedex from '@/utils/fedex';
-import skynet from '@/utils/skynet';
 import { IReqBody } from '@/utils/types';
 
 import { db } from '../../firebase';
@@ -22,7 +19,6 @@ export default async function handler(
   const dbInstance = collection(db, 'shipments');
   const { body } = req;
   const reqBody: IReqBody = JSON.parse(body);
-  let data = undefined;
   // checking if shipment already exists or not
   const q = query(dbInstance, where('awbId', '==', reqBody.shipment.awbId));
   const querySnapshot = await getDocs(q);
@@ -34,29 +30,28 @@ export default async function handler(
   } else {
     // sending data to firebase
     try {
-      switch (reqBody.shipment.service) {
-        case 'DHL': {
-          const res = await dhl(reqBody.shipment.awbId);
-          data = res.shipments;
-          break;
-        }
-        case 'Skynet': {
-          const res = await skynet(reqBody.shipment.awbId);
-          data = res.Data;
-          break;
-        }
-        case 'Fedex': {
-          const res = await fedex(reqBody.shipment.awbId);
-          data = res.output.completeTrackResults;
+      // switch (reqBody.shipment.service) {
+      //   case 'DHL': {
+      //     const res = await dhl(reqBody.shipment.awbId);
+      //     data = res.shipments;
+      //     break;
+      //   }
+      //   case 'Skynet': {
+      //     const res = await skynet(reqBody.shipment.awbId);
+      //     data = res.Data;
+      //     break;
+      //   }
+      //   case 'Fedex': {
+      //     const res = await fedex(reqBody.shipment.awbId);
+      //     data = res.output.completeTrackResults;
 
-          break;
-        }
-        default:
-          break;
-      }
+      //     break;
+      //   }
+      //   default:
+      //     break;
+      // }
       const finalData = {
         ...reqBody.shipment,
-        trackingInfo: data,
       };
 
       await setDoc(doc(dbInstance), finalData);

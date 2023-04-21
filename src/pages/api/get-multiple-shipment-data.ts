@@ -8,6 +8,9 @@ import {
 import { NextApiRequest, NextApiResponse } from 'next';
 
 import { db } from '../../firebase';
+import dhl from '@/utils/dhl';
+import fedex from '@/utils/fedex';
+import skynet from '@/utils/skynet';
 
 export default async function handler(
   req: NextApiRequest,
@@ -24,5 +27,31 @@ export default async function handler(
   querySnapshot.forEach((doc) => {
     dataArr.push(doc.data());
   });
-  res.status(200).json({ shipmentData: dataArr });
+  const promiseArr: Promise<any>[] = [];
+  dataArr.map(async (data) => {
+    const { service, awbId } = data;
+    switch (service) {
+      case 'DHL': {
+        promiseArr.push(dhl(awbId));
+        break;
+      }
+      case 'Skynet': {
+        promiseArr.push(skynet(awbId));
+        break;
+      }
+      case 'Fedex': {
+        promiseArr.push(fedex(awbId));
+        break;
+      }
+      default:
+        break;
+    }
+  });
+  const promiseArrRes = await Promise.all(promiseArr);
+  const finalData = {
+    userData: dataArr,
+    trackingData: promiseArrRes,
+  };
+
+  res.status(200).json({ shipmentData: finalData });
 }

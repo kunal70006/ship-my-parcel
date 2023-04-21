@@ -8,6 +8,7 @@ import {
   IMultiTrackingDHL,
   IMultiTrackingFedex,
   IMultiTrackingSkynet,
+  IService,
 } from '@/utils/types';
 
 const MultiTracking = () => {
@@ -40,40 +41,50 @@ const MultiTracking = () => {
       const skynetArr: IMultiTrackingSkynet[] = [];
       const fedexArr: IMultiTrackingFedex[] = [];
 
-      data.shipmentData.map((item: any) => {
-        if (item.service === 'Skynet') {
-          const userDetails = {
-            name: item.name,
-            address: item.address,
-            actualWeight: item.actualWeight,
-            volWeight: item.volWeight,
-          };
-          skynetArr.push({
-            trackingInfo: item.trackingInfo,
-            userDetails: userDetails,
-          });
-        } else if (item.service === 'DHL') {
-          const userDetails = {
-            name: item.name,
-            address: item.address,
-            actualWeight: item.actualWeight,
-            volWeight: item.volWeight,
-          };
-          dhlArr.push({
-            trackingInfo: item.trackingInfo[0].events,
-            userDetails: userDetails,
-          });
-        } else if (item.service === 'Fedex') {
-          const userDetails = {
-            name: item.name,
-            address: item.address,
-            actualWeight: item.actualWeight,
-            volWeight: item.volWeight,
-          };
-          fedexArr.push({
-            trackingInfo: item.trackingInfo[0].trackResults[0].scanEvents,
-            userDetails: userDetails,
-          });
+      data.shipmentData.userData.map((item: any) => {
+        const { service } = item;
+        const userDetails = {
+          name: item.name,
+          address: item.address,
+          actualWeight: item.actualWeight,
+          volWeight: item.volWeight,
+        };
+        switch (service as IService) {
+          case 'Skynet':
+            data.shipmentData.trackingData.forEach((trackingItem: any) => {
+              if ('Data' in trackingItem) {
+                skynetArr.push({
+                  trackingInfo: trackingItem.Data,
+                  userDetails: userDetails,
+                });
+              }
+            });
+            break;
+          case 'DHL':
+            data.shipmentData.trackingData.forEach((trackingItem: any) => {
+              if ('shipments' in trackingItem) {
+                dhlArr.push({
+                  trackingInfo: trackingItem.shipments[0].events,
+                  userDetails: userDetails,
+                });
+              }
+            });
+            break;
+
+          case 'Fedex':
+            data.shipmentData.trackingData.forEach((trackingItem: any) => {
+              if ('output' in trackingItem) {
+                fedexArr.push({
+                  trackingInfo:
+                    trackingItem.output.completeTrackResults[0].trackResults[0]
+                      .scanEvents,
+                  userDetails: userDetails,
+                });
+              }
+            });
+            break;
+          default:
+            break;
         }
       });
 
