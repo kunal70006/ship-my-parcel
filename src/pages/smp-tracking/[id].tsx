@@ -9,6 +9,7 @@ import {
   IShipmentDataFedex,
   IShipmentDataSkynet,
 } from '@/utils/types';
+import { Loader } from '@/utils/useLoader';
 
 const SMP = () => {
   const router = useRouter();
@@ -168,7 +169,7 @@ const SMP = () => {
           </>
         ) : (
           <div className="flex h-full items-center justify-center">
-            <h1 className="">Something went wrong</h1>
+            <Loader />
           </div>
         )}
       </div>
