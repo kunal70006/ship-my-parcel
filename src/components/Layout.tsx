@@ -20,7 +20,7 @@ const Layout = ({ children }: any) => {
           content="https://firebasestorage.googleapis.com/v0/b/ship-my-parcel-41b0f.appspot.com/o/logo.png?alt=media&token=b93ecfd9-2c85-4248-9496-3239bb504943"
         />
       </Head>
-      {...children}
+      {children}
     </>
   );
 };
