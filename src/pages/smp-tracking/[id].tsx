@@ -10,6 +10,7 @@ import {
   IShipmentDataSkynet,
 } from '@/utils/types';
 import { Loader } from '@/utils/useLoader';
+import Layout from '@/components/Layout';
 
 const SMP = () => {
   const router = useRouter();
@@ -72,7 +73,7 @@ const SMP = () => {
   }, [id]);
 
   return (
-    <>
+    <Layout>
       <Navbar />
       <div className="flex flex-col px-8 mt-24 items-center mb-36">
         {shipmentData ? (
@@ -174,7 +175,7 @@ const SMP = () => {
         )}
       </div>
       <Footer />
-    </>
+    </Layout>
   );
 };
 

@@ -5,6 +5,7 @@ import HowItWorksAndPartners from '@/components/HowItWorksAndPartners';
 import Navbar from '@/components/Navbar';
 import Solutions from '@/components/Solutions';
 import Script from 'next/script';
+import Head from 'next/head';
 
 const Home = () => {
   return (
@@ -24,7 +25,23 @@ const Home = () => {
           document.getElementById("visitors").textContent = response.value
         }`}
       </Script>
-
+      <Head>
+        <title>Ship My Parcel</title>
+        <meta
+          name="description"
+          content="Delivering Happiness to you!"
+          key="desc"
+        />
+        <meta property="og:title" content="Ship My Parcel" />
+        <meta
+          property="og:description"
+          content="Delivering Happiness to you!"
+        />
+        <meta
+          property="og:image"
+          content="https://firebasestorage.googleapis.com/v0/b/ship-my-parcel-41b0f.appspot.com/o/logo.png?alt=media&token=b93ecfd9-2c85-4248-9496-3239bb504943"
+        />
+      </Head>
       <div className="relative">
         <Navbar />
         <video

@@ -4,6 +4,7 @@ import { v4 as uuid } from 'uuid';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import { IService, IShipment } from '@/utils/types';
+import Layout from '@/components/Layout';
 
 const AWB = () => {
   const [info, setInfo] = useState<IShipment>({
@@ -56,7 +57,7 @@ const AWB = () => {
   };
 
   return (
-    <>
+    <Layout>
       <Navbar />
       <div className="flex flex-col px-8 my-24 items-center">
         <h1 className="sm:text-4xl text-2xl font-semibold mb-8">
@@ -137,7 +138,7 @@ const AWB = () => {
       </div>
 
       <Footer />
-    </>
+    </Layout>
   );
 };
 
