@@ -17,6 +17,7 @@ const AWB = () => {
   });
   const [isLoading, setIsLoading] = useState(false);
   const [ID, setID] = useState('');
+  const [trackingURL, setTrackingURL] = useState('');
 
   const handleGenerate = async () => {
     const trackingId = `SMP${uuid().substring(0, 8)}`;
@@ -39,6 +40,9 @@ const AWB = () => {
       if (res.status === 200) {
         const data = await res.json();
         setID(data.smpID);
+        setTrackingURL(
+          `https://www.shipmyparcel.co.in/smp-tracking/${data.smpID}`
+        );
       }
     } catch (err) {
       console.error(err);
@@ -135,8 +139,18 @@ const AWB = () => {
           Generate
         </button>
         {ID && <h2 className="text-lg mt-4">Tracking ID: {ID}</h2>}
+        {trackingURL && (
+          <>
+            <h2 className="text-lg mt-4">Tracking URL: {trackingURL}</h2>
+            <button
+              onClick={() => navigator.clipboard.writeText(trackingURL)}
+              className="bg-yellow-300 rounded-md py-2 px-4 hover:bg-orange-500 transition-colors hover:text-white disabled:bg-slate-300 disabled:cursor-not-allowed disabled:text-black mt-4"
+            >
+              Copy URL
+            </button>
+          </>
+        )}
       </div>
-
       <Footer />
     </Layout>
   );
