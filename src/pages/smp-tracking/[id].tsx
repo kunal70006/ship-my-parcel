@@ -79,11 +79,11 @@ const SMP = () => {
         {shipmentData ? (
           <>
             {userDetails && (
-              <>
+              <div className="block text-center items-center">
                 <h1 className="mt-8 font-semibold text-xl">
                   Consignee Name: {userDetails.name}
                 </h1>
-                <h1 className="font-semibold text-xl">
+                <h1 className="font-semibold text-xl break-words">
                   Consignee Address: {userDetails.address}
                 </h1>
                 <h1 className="font-semibold text-xl">
@@ -95,7 +95,7 @@ const SMP = () => {
                 <h1 className="font-semibold text-xl">
                   Tracking ID: {userDetails.trackingId}
                 </h1>
-              </>
+              </div>
             )}
             <table className="table-auto w-full border-spacing-6 mt-16 border-2 shadow-lg rounded-md">
               <thead>

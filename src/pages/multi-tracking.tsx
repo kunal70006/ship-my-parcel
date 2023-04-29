@@ -135,11 +135,11 @@ const MultiTracking = () => {
             skynetShipmentData?.map((shipment, idx) => (
               <>
                 {shipment.userDetails && (
-                  <>
+                  <div className="block text-center items-center">
                     <h1 className="mt-8 font-semibold text-xl">
                       Consignee Name: {shipment.userDetails.name}
                     </h1>
-                    <h1 className="font-semibold text-xl">
+                    <h1 className="font-semibold text-xl break-words">
                       Consignee Address: {shipment.userDetails.address}
                     </h1>
                     <h1 className="font-semibold text-xl">
@@ -148,7 +148,7 @@ const MultiTracking = () => {
                     <h1 className="font-semibold text-xl">
                       Volumetric Weight: {shipment.userDetails.volWeight}
                     </h1>
-                  </>
+                  </div>
                 )}
                 <table
                   key={idx}
@@ -185,11 +185,11 @@ const MultiTracking = () => {
             dhlShipmentData?.map((shipment, idx) => (
               <>
                 {shipment.userDetails && (
-                  <>
+                  <div className="block text-center items-center">
                     <h1 className="mt-8 font-semibold text-xl">
                       Consignee Name: {shipment.userDetails.name}
                     </h1>
-                    <h1 className="font-semibold text-xl">
+                    <h1 className="font-semibold text-xl break-words">
                       Consignee Address: {shipment.userDetails.address}
                     </h1>
                     <h1 className="font-semibold text-xl">
@@ -198,7 +198,7 @@ const MultiTracking = () => {
                     <h1 className="font-semibold text-xl">
                       Volumetric Weight: {shipment.userDetails.volWeight}
                     </h1>
-                  </>
+                  </div>
                 )}
                 <table
                   className="table-auto w-full border-spacing-6 mt-16 border-2 shadow-lg rounded-md"
@@ -235,11 +235,11 @@ const MultiTracking = () => {
             fedexShipmentData?.map((shipment, idx) => (
               <>
                 {shipment.userDetails && (
-                  <>
+                  <div className="block text-center items-center">
                     <h1 className="mt-8 font-semibold text-xl">
                       Consignee Name: {shipment.userDetails.name}
                     </h1>
-                    <h1 className="font-semibold text-xl">
+                    <h1 className="font-semibold text-xl break-words">
                       Consignee Address: {shipment.userDetails.address}
                     </h1>
                     <h1 className="font-semibold text-xl">
@@ -248,7 +248,7 @@ const MultiTracking = () => {
                     <h1 className="font-semibold text-xl">
                       Volumetric Weight: {shipment.userDetails.volWeight}
                     </h1>
-                  </>
+                  </div>
                 )}
                 <table
                   className="table-auto w-full border-spacing-6 mt-16 border-2 shadow-lg rounded-md"
