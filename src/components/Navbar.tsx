@@ -54,16 +54,23 @@ const Navbar = () => {
                 Contact
               </button>
             </Link>
+
+            <Link href="/rate-card">
+              <button
+                className={`${
+                  router.pathname === '/rate-card' &&
+                  'underline text-orange-500'
+                } hover:underline underline-offset-8 hover:text-orange-500 transition-colors pt-2`}
+              >
+                Rate Card
+              </button>
+            </Link>
+
             <Link href="/smp-tracking">
               <button className="bg-white rounded-md py-2 px-4 hover:bg-orange-500 transition-colors hover:text-white">
                 SMP Tracking
               </button>
             </Link>
-            {/* <Link href="/awb-tracking">
-              <button className="bg-white rounded-md py-2 px-4 hover:bg-orange-500 transition-colors hover:text-white">
-                AWB Tracking
-              </button>
-            </Link> */}
           </div>
         ) : (
           <Hamburger size={24} toggled={isOpen} toggle={setIsOpen} />
@@ -108,6 +115,18 @@ const Navbar = () => {
                 Contact
               </button>
             </Link>
+
+            <Link href="/rate-card">
+              <button
+                className={`${
+                  router.pathname === '/rate-card' &&
+                  'underline text-orange-500'
+                } hover:underline underline-offset-8 hover:text-orange-500 transition-colors pt-2`}
+              >
+                Rate Card
+              </button>
+            </Link>
+
             <Link href="/smp-tracking">
               <button className="bg-white rounded-md py-2 px-4 hover:bg-orange-500 transition-colors hover:text-white">
                 SMP Tracking
