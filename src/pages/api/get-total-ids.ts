@@ -8,7 +8,7 @@ export default async function handler(
   res: NextApiResponse
 ) {
   try {
-    const collectionRef = collection(db, 'cities');
+    const collectionRef = collection(db, 'shipments');
     const snapshot = await getCountFromServer(collectionRef);
     res.status(200).json({ count: snapshot.data().count });
     console.log(snapshot.data().count);
