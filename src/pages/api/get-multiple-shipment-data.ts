@@ -30,16 +30,17 @@ export default async function handler(
   const promiseArr: Promise<any>[] = [];
   dataArr.map(async (data) => {
     const { service, awbId } = data;
-    switch (service) {
-      case 'DHL': {
+    const lCaseService = service.toLowerCase();
+    switch (lCaseService) {
+      case 'dhl': {
         promiseArr.push(dhl(awbId));
         break;
       }
-      case 'Skynet': {
+      case 'skynet': {
         promiseArr.push(skynet(awbId));
         break;
       }
-      case 'Fedex': {
+      case 'fedex': {
         promiseArr.push(fedex(awbId));
         break;
       }

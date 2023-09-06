@@ -7,16 +7,22 @@ export interface IShipment {
   volWeight: string;
 }
 
+export interface IBaseShipment {
+  trackingId: string;
+  service: IService;
+  awbId: string;
+  name: string;
+  address: string;
+  actualWeight: string;
+  volWeight: string;
+}
+
+export interface AllShipment extends IReqBody {
+  docId: string;
+}
+
 export interface IReqBody {
-  shipment: {
-    trackingId: string;
-    service: IService;
-    awbId: string;
-    name: string;
-    address: string;
-    actualWeight: string;
-    volWeight: string;
-  };
+  shipment: IBaseShipment;
 }
 
 export type IService = 'DHL' | 'Skynet' | 'Fedex';

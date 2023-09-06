@@ -23,19 +23,20 @@ export default async function handler(
   });
   const { service, awbId } = dataFromFirebase;
   let dataFromTrackingService = undefined;
+  const lCaseService = service.toLowerCase();
   try {
-    switch (service) {
-      case 'DHL': {
+    switch (lCaseService) {
+      case 'dhl': {
         const res = await dhl(awbId);
         dataFromTrackingService = res.shipments;
         break;
       }
-      case 'Skynet': {
+      case 'skynet': {
         const res = await skynet(awbId);
         dataFromTrackingService = res.Data;
         break;
       }
-      case 'Fedex': {
+      case 'fedex': {
         const res = await fedex(awbId);
         dataFromTrackingService = res.output.completeTrackResults;
         break;
