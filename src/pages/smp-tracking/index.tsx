@@ -10,6 +10,7 @@ import {
   IShipmentDataSkynet,
 } from '@/utils/types';
 import Layout from '@/components/Layout';
+import PopupImage from '@/components/Popup';
 
 const SMP = () => {
   const router = useRouter();
@@ -69,6 +70,7 @@ const SMP = () => {
 
   return (
     <Layout>
+      <PopupImage />
       <Navbar />
       <div className="flex flex-col px-8 mt-24 items-center mb-36">
         <h1 className="sm:text-4xl text-2xl font-semibold mb-8">

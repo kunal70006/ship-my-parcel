@@ -6,6 +6,7 @@ import Navbar from '@/components/Navbar';
 import Solutions from '@/components/Solutions';
 import Script from 'next/script';
 import Head from 'next/head';
+import PopupImage from '@/components/Popup';
 
 const Home = () => {
   return (
@@ -43,6 +44,7 @@ const Home = () => {
         />
       </Head>
       <div className="relative">
+        <PopupImage />
         <Navbar />
         <video
           autoPlay
