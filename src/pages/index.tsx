@@ -44,7 +44,7 @@ const Home = () => {
         />
       </Head>
       <div className="relative">
-        <PopupImage />
+        {/* <PopupImage /> */}
         <Navbar />
         <video
           autoPlay

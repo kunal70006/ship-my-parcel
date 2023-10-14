@@ -75,7 +75,7 @@ const SMP = () => {
 
   return (
     <Layout>
-      <PopupImage />
+      {/* <PopupImage /> */}
       <Navbar />
       <div className="flex flex-col px-8 mt-24 items-center mb-36">
         {shipmentData ? (
