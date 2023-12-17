@@ -15,6 +15,7 @@ export interface IBaseShipment {
   address: string;
   actualWeight: string;
   volWeight: string;
+  isPaid: boolean;
 }
 
 export interface AllShipment extends IReqBody {

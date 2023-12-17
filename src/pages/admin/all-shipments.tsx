@@ -1,7 +1,7 @@
 import Layout from '@/components/Layout';
 import Navbar from '@/components/Navbar';
 import signInWithGoogle from '@/utils/signInWithGoogle';
-import { type AllShipment } from '@/utils/types';
+import { IBaseShipment, type AllShipment } from '@/utils/types';
 import { useEffect, useState } from 'react';
 
 const AllShipments = () => {
@@ -24,7 +24,15 @@ const AllShipments = () => {
         try {
           const res = await fetch('/api/get-all-shipments');
           const data = await res.json();
-          setShipmentData(data.shipmentData);
+          const sData: AllShipment[] = data?.shipmentData;
+          if (sData) {
+            const sortedData = sData.sort((a, b) => {
+              return a.shipment.name
+                .toLocaleLowerCase()
+                .localeCompare(b.shipment.name);
+            });
+            setShipmentData(sortedData);
+          }
         } catch (error) {
           console.error(error);
           throw new Error('Shit done goofed');
@@ -54,16 +62,28 @@ const AllShipments = () => {
     event: React.ChangeEvent<HTMLInputElement>,
     trackingId: string
   ) => {
+    const allShipments = [...shipmentData];
     const shipment = shipmentData.filter(
       (data) => data.shipment.trackingId === trackingId
     )[0];
-    // @ts-expect-error i dont feel like dealing w this err
-    shipment.shipment[event.target.id] = event.target.value;
-
-    setShipmentData((t) => [
-      ...t.filter((d) => d.shipment.trackingId !== trackingId),
+    if (event.target.name === 'isPaid') {
+      shipment.shipment[event.target.name] = event.target.checked;
+    } else {
+      // @ts-expect-error i dont feel like dealing w this err
+      shipment.shipment[event.target.name] = event.target.value;
+    }
+    const temp = [
+      ...allShipments.filter((s) => s.shipment.trackingId !== trackingId),
       shipment,
-    ]);
+    ].sort((a, b) => {
+      return a.shipment.name.toLocaleLowerCase().localeCompare(b.shipment.name);
+    });
+
+    setShipmentData(temp);
+    // setShipmentData((t) => [
+    //   ...t.filter((d) => d.shipment.trackingId !== trackingId),
+    //   shipment,
+    // ]);
   };
 
   const handleUpdateShipment = async (shipment: AllShipment) => {
@@ -119,10 +139,10 @@ const AllShipments = () => {
   return (
     <Layout>
       <Navbar />
-      <div className="flex flex-col items-center my-8 gap-8">
+      <div className="flex flex-col items-center my-8 gap-8 px-4 xl:px-0">
         <h1 className="text-2xl font-semibold">Tracking IDs</h1>
         <input
-          className="bg-slate-100 px-2 py-1 rounded-lg w-1/3 text-lg placeholder:text-black"
+          className="bg-slate-100 px-2 py-1 rounded-lg xl:w-1/3 w-full text-lg placeholder:text-black"
           placeholder="Search using Tracking ID..."
           value={searchQuery}
           onChange={(ev) => setSearchQuery(ev.target.value)}
@@ -133,7 +153,7 @@ const AllShipments = () => {
           )
           .map((shipment) => (
             <div
-              className="shadow-lg rounded-lg px-8 py-4 bg-slate-200 flex flex-col gap-4 text-lg w-1/3"
+              className="shadow-lg rounded-lg px-8 py-4 bg-slate-200 flex flex-col gap-4 text-lg xl:w-1/3 w-full"
               key={shipment.docId}
             >
               <div className="flex justify-between items-center">
@@ -141,7 +161,19 @@ const AllShipments = () => {
                 <input
                   type="text"
                   value={shipment.shipment.name}
-                  id="name"
+                  name="name"
+                  className="bg-slate-100 px-2 py-1 rounded-lg w-1/2"
+                  onChange={(ev) =>
+                    handleFieldChange(ev, shipment.shipment.trackingId)
+                  }
+                />
+              </div>
+              <div className="flex justify-between">
+                <span className="">Paid: </span>
+                <input
+                  type="checkbox"
+                  checked={shipment.shipment.isPaid}
+                  name="isPaid"
                   className="bg-slate-100 px-2 py-1 rounded-lg w-1/2"
                   onChange={(ev) =>
                     handleFieldChange(ev, shipment.shipment.trackingId)
@@ -153,7 +185,7 @@ const AllShipments = () => {
                 <input
                   type="text"
                   value={shipment.shipment.service}
-                  id="service"
+                  name="service"
                   className="bg-slate-100 px-2 py-1 rounded-lg w-1/2"
                   onChange={(ev) =>
                     handleFieldChange(ev, shipment.shipment.trackingId)
@@ -165,7 +197,7 @@ const AllShipments = () => {
                 <input
                   type="text"
                   value={shipment.shipment.actualWeight}
-                  id="actualWeight"
+                  name="actualWeight"
                   className="bg-slate-100 px-2 py-1 rounded-lg w-1/2"
                   onChange={(ev) =>
                     handleFieldChange(ev, shipment.shipment.trackingId)
@@ -177,7 +209,7 @@ const AllShipments = () => {
                 <input
                   type="text"
                   value={shipment.shipment.volWeight}
-                  id="volWeight"
+                  name="volWeight"
                   className="bg-slate-100 px-2 py-1 rounded-lg w-1/2"
                   onChange={(ev) =>
                     handleFieldChange(ev, shipment.shipment.trackingId)
@@ -189,7 +221,7 @@ const AllShipments = () => {
                 <input
                   type="text"
                   value={shipment.shipment.awbId}
-                  id="awbId"
+                  name="awbId"
                   className="bg-slate-100 px-2 py-1 rounded-lg w-1/2"
                   onChange={(ev) =>
                     handleFieldChange(ev, shipment.shipment.trackingId)
@@ -202,7 +234,7 @@ const AllShipments = () => {
                 <input
                   type="text"
                   value={shipment.shipment.address}
-                  id="address"
+                  name="address"
                   className="bg-slate-100 px-2 py-1 rounded-lg w-1/2"
                   onChange={(ev) =>
                     handleFieldChange(ev, shipment.shipment.trackingId)
@@ -215,7 +247,7 @@ const AllShipments = () => {
                   type="text"
                   value={shipment.shipment.trackingId}
                   disabled
-                  id="address"
+                  name="address"
                   className="bg-slate-100 px-2 py-1 rounded-lg w-1/2"
                 />
               </div>
