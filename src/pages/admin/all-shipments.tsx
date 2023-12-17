@@ -87,19 +87,23 @@ const AllShipments = () => {
   };
 
   const handleUpdateShipment = async (shipment: AllShipment) => {
+    const temp = shipment;
+    // @ts-expect-error cant pass booleans in post for some reason
+    temp.shipment.isPaid = temp.shipment.isPaid ? 1 : 0;
+
     try {
-      if (Object.values(shipment.shipment).every((val) => Boolean(val))) {
-        const res = await fetch('/api/update-shipment', {
-          method: 'POST',
-          // headers: {
-          //   Accept: 'application/json',
-          //   'Content-Type': 'application/json',
-          // },
-          body: JSON.stringify(shipment),
-        });
-        const data = await res.json();
-        window.alert(data);
-      }
+      // if (Object.values(shipment.shipment).every((val) => Boolean(val))) {
+      const res = await fetch('/api/update-shipment', {
+        method: 'POST',
+        // headers: {
+        //   Accept: 'application/json',
+        //   'Content-Type': 'application/json',
+        // },
+        body: JSON.stringify(temp),
+      });
+      const data = await res.json();
+      window.alert(data);
+      // }
     } catch (error) {
       console.error(error);
       throw new Error('huh');

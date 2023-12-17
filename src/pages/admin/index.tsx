@@ -34,6 +34,7 @@ const AWB = () => {
             address: info.address.trim(),
             actualWeight: info.actualWeight.trim(),
             volWeight: info.volWeight.trim(),
+            isPaid: true,
           },
         }),
       });

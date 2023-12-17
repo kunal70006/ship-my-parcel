@@ -10,7 +10,13 @@ export default async function handler(
   res: NextApiResponse
 ) {
   const { body } = req;
+
   const ship: AllShipment = JSON.parse(body);
+  if (ship.shipment.isPaid) {
+    ship.shipment.isPaid = true;
+  } else {
+    ship.shipment.isPaid = false;
+  }
   await updateDoc(doc(db, 'shipments', ship.docId), {
     ...ship.shipment,
   });

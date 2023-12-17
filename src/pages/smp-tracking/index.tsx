@@ -193,7 +193,7 @@ const SMP = () => {
                 </tbody>
               </table>
             ) : (
-              <div className="mt-16 text-2xl font-bold">
+              <div className="mt-16 text-2xl font-bold text-center">
                 Shipment has been halted until all shipment fees are settled.
               </div>
             )}
