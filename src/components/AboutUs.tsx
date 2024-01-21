@@ -39,8 +39,8 @@ const AboutUs = () => {
               Mobile: +918448668558, +918860502024
             </p>
             <p className="font-semibold text-xl">
-              Address: WZ-399, Shop No.2, Street 22, Shiv Nagar <br /> New
-              Delhi, Delhi 110058
+              Address: GB 5, Street No-5, G Block, Shiv Nagar, <br />
+              Jail Road, Opposite Om Sweets, New Delhi, Delhi 110058
             </p>
           </div>
         </div>
