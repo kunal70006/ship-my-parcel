@@ -118,6 +118,22 @@ const Terms = () => {
         your monitor’s display of any colour will be accurate.
         <br />
         <br />
+        Shipping carriers are only liable to file for loss shipments and are
+        obligated to compensate as per the minimum liability of loss (100 USD)
+        or the invoice value, whichever is lower. In case of any mishap,
+        <b> ShipMyParcel IS NOT LIABLE</b> for compensation. Duties and taxes
+        are the responsibility of the receiver, if applicable. Address
+        correction charges are to be paid by the receiver in case of mistakes or
+        wrong details provided. Customers are responsible for paying storage
+        charges in case of delays caused by any reason.{' '}
+        <b>ShipMyParcel IS NOT LIABLE</b> in case of any misdeclaration of items
+        by customers, leading to possible delays or customs issues. Additional
+        charges such as AAI charges, demurrage charges, DO charges, terminal
+        charges, and custom duty are extra and must be paid by the
+        consignee/receiver once the shipment reaches the destination.
+        ShipMyParcel is not responsible for covering these charges.
+        <br />
+        <br />
         <h1 className="mt-10 font-semibold text-md lg:text-xl">
           Modification of Terms & Conditions of Service
         </h1>

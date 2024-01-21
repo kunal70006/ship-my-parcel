@@ -7,8 +7,12 @@ import Solutions from '@/components/Solutions';
 import Script from 'next/script';
 import Head from 'next/head';
 import PopupImage from '@/components/Popup';
+import { getDownloadURL, listAll, ref } from 'firebase/storage';
+import { storage } from '@/firebase';
+import { InferGetStaticPropsType } from 'next';
+import CarouselComponent from '@/components/Carousel';
 
-const Home = () => {
+function Home({ urls }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
       <Script
@@ -58,6 +62,7 @@ const Home = () => {
         <h1 className="absolute font-semibold sm:text-7xl text-white  px-8 text-xl sm:top-[5%] top-[150px]">
           Delivering Happiness <br /> to you!
         </h1>
+        <CarouselComponent urls={urls} />
         <AboutUs />
         <Features />
         <Solutions />
@@ -71,6 +76,27 @@ const Home = () => {
       </div>
     </>
   );
-};
+}
 
 export default Home;
+
+export const getStaticProps = async () => {
+  const storageRef = ref(storage, '/reviews');
+  const urlArr: string[] = [];
+
+  try {
+    const list = await listAll(storageRef);
+
+    // Use Promise.all to wait for all promises to resolve
+    await Promise.all(
+      list.items.map(async (item) => {
+        const url = await getDownloadURL(item);
+        urlArr.push(url);
+      })
+    );
+  } catch (error) {
+    console.error('Error listing files:', error);
+  }
+
+  return { props: { urls: urlArr ?? [] } };
+};
