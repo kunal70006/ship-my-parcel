@@ -31,11 +31,8 @@ const Footer = () => {
         />
 
         <h2 className="text-2xl mb-2">Contact</h2>
-        <p>Mobile: +918448668558, +918860502024</p>
-        <p>
-          Address: GB 5, Street No-5, G Block, Shiv Nagar, Jail Road, Opposite
-          Om Sweets, New Delhi, Delhi 110058
-        </p>
+        <p>Mobile: +918448668558</p>
+        <p>Address: Wz-182/183, Krishna Park, Delhi-110018</p>
       </div>
       <div className="sm:w-1/3 mt-16 flex flex-col sm:items-end ">
         <h2 className="text-2xl mb-2">Information</h2>

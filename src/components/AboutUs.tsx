@@ -26,21 +26,18 @@ const AboutUs = () => {
       </div>
       {router.pathname === '/about' && (
         <div className="sm:w-1/2 flex flex-col sm:flex-row justify-between mt-8 sm:mt-0">
-          <div className="">
+          {/* <div className="">
             <h1 className="text-4xl font-semibold mb-8">Founders</h1>
             <p className="font-semibold text-xl">Mr. Ajit Pratap Singh</p>
             <p className="font-semibold text-xl">Mr. Gurpreet Singh</p>
-          </div>
+          </div> */}
           <div className="">
             <h1 className="text-4xl font-semibold mb-8 mt-8 sm:mt-0">
               Contact
             </h1>
+            <p className="font-semibold text-xl">Mobile: +918448668558</p>
             <p className="font-semibold text-xl">
-              Mobile: +918448668558, +918860502024
-            </p>
-            <p className="font-semibold text-xl">
-              Address: GB 5, Street No-5, G Block, Shiv Nagar, <br />
-              Jail Road, Opposite Om Sweets, New Delhi, Delhi 110058
+              Address: Wz-182/183, Krishna Park, Delhi-110018
             </p>
           </div>
         </div>
