@@ -22,14 +22,14 @@ const Footer = () => {
       </div>
 
       <div className="sm:w-1/3 mt-16 flex flex-col items-center text-center">
-        <Image
+        {/* <Image
           src="/maps.png"
           width={400}
           height={400}
           className=" object-contain"
           alt="map"
-        />
-
+        /> */}
+        <div className="grow lg:hidden"></div>
         <h2 className="text-2xl mb-2">Contact</h2>
         <p>Mobile: +918448668558</p>
         <p>Address: Wz-182/183, Krishna Park, Delhi-110018</p>
