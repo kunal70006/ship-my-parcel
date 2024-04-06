@@ -90,12 +90,12 @@ const SMP = () => {
                 <h1 className="font-semibold text-xl break-words">
                   Consignee Address: {userDetails.address}
                 </h1>
-                <h1 className="font-semibold text-xl">
+                {/* <h1 className="font-semibold text-xl">
                   Actual Weight: {userDetails.actualWeight}
                 </h1>
                 <h1 className="font-semibold text-xl">
                   Volumetric Weight: {userDetails.volWeight}
-                </h1>
+                </h1> */}
                 <h1 className="font-semibold text-xl">
                   Tracking ID: {userDetails.trackingId}
                 </h1>

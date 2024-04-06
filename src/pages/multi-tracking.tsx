@@ -142,12 +142,12 @@ const MultiTracking = () => {
                     <h1 className="font-semibold text-xl break-words">
                       Consignee Address: {shipment.userDetails.address}
                     </h1>
-                    <h1 className="font-semibold text-xl">
+                    {/* <h1 className="font-semibold text-xl">
                       Actual Weight: {shipment.userDetails.actualWeight}
                     </h1>
                     <h1 className="font-semibold text-xl">
                       Volumetric Weight: {shipment.userDetails.volWeight}
-                    </h1>
+                    </h1> */}
                   </div>
                 )}
                 <table
@@ -192,12 +192,12 @@ const MultiTracking = () => {
                     <h1 className="font-semibold text-xl break-words">
                       Consignee Address: {shipment.userDetails.address}
                     </h1>
-                    <h1 className="font-semibold text-xl">
+                    {/* <h1 className="font-semibold text-xl">
                       Actual Weight: {shipment.userDetails.actualWeight}
                     </h1>
                     <h1 className="font-semibold text-xl">
                       Volumetric Weight: {shipment.userDetails.volWeight}
-                    </h1>
+                    </h1> */}
                   </div>
                 )}
                 <table
@@ -242,12 +242,12 @@ const MultiTracking = () => {
                     <h1 className="font-semibold text-xl break-words">
                       Consignee Address: {shipment.userDetails.address}
                     </h1>
-                    <h1 className="font-semibold text-xl">
+                    {/* <h1 className="font-semibold text-xl">
                       Actual Weight: {shipment.userDetails.actualWeight}
                     </h1>
                     <h1 className="font-semibold text-xl">
                       Volumetric Weight: {shipment.userDetails.volWeight}
-                    </h1>
+                    </h1> */}
                   </div>
                 )}
                 <table
