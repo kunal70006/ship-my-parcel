@@ -33,7 +33,7 @@ export default async function handler(
       }
       case 'skynet': {
         const res = await skynet(awbId);
-        dataFromTrackingService = res.Data;
+        dataFromTrackingService = res;
         break;
       }
       case 'fedex': {

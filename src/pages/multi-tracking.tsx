@@ -53,9 +53,17 @@ const MultiTracking = () => {
         switch (service as IService) {
           case 'Skynet':
             data.shipmentData.trackingData.forEach((trackingItem: any) => {
-              if ('Data' in trackingItem) {
+              if ('ShipmentHistory' in trackingItem) {
                 skynetArr.push({
-                  trackingInfo: trackingItem.Data,
+                  trackingInfo: trackingItem.ShipmentHistory.map(
+                    (item: any) => {
+                      return {
+                        Status: item?.ShipmentStatus ?? '',
+                        Remarks: item?.ShipmentDetails ?? '',
+                        ShipDate: item?.Date,
+                      };
+                    }
+                  ),
                   userDetails: userDetails,
                 });
               }
@@ -165,9 +173,7 @@ const MultiTracking = () => {
                     {shipment.trackingInfo.map((item, idx) => (
                       <tr key={idx} className=" border ">
                         <td className="w-1/3 py-4 border text-center">
-                          {moment(item.ShipDate, 'DD/MM/YYYY').format(
-                            'MMMM DD, YYYY'
-                          )}
+                          {item.ShipDate}
                         </td>
                         <td className="w-1/3 py-4 border text-center text-black">
                           {item.Status}
