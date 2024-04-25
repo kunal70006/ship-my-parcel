@@ -5,9 +5,9 @@ export default async function skynet(trackingNumber: string) {
   };
 
   const body = {
-    Token: '0DFA62BE-ED79-44C4-AA6C-E0B8D8050651',
-    ClientToken: '0DFA62BE-ED79-44C4-AA6C-E0B8D8050651',
-    ClientCode: 'H1005',
+    Token: process.env.NEXT_PUBLIC_ClientToken,
+    ClientToken: process.env.NEXT_PUBLIC_ClientToken,
+    ClientCode: process.env.NEXT_PUBLIC_ClientCode,
     ShipmentOrderID: trackingNumber,
   };
   try {
