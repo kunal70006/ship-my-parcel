@@ -15,6 +15,7 @@ import Layout from '@/components/Layout';
 const MultiTracking = () => {
   const router = useRouter();
   const [ids, setIds] = useState('');
+
   const [skynetShipmentData, setSkynetShipmentData] = useState<
     IMultiTrackingSkynet[]
   >([]);
