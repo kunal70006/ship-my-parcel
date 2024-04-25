@@ -26,7 +26,7 @@ export interface IReqBody {
   shipment: IBaseShipment;
 }
 
-export type IService = 'DHL' | 'Skynet' | 'Fedex';
+export type IService = 'DHL' | 'Skynet' | 'Fedex' | 'SkynetNew';
 
 export interface IShipmentDataSkynet {
   Status: string;

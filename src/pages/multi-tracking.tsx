@@ -25,6 +25,11 @@ const MultiTracking = () => {
   const [fedexShipmentData, setFedexShipmentData] = useState<
     IMultiTrackingFedex[]
   >([]);
+
+  const [skynetNewShipmentData, setSkynetNewShipmentData] = useState<
+    IMultiTrackingSkynet[]
+  >([]);
+
   const [isLoading, setIsLoading] = useState(false);
 
   const getShipmentData = async () => {
@@ -41,6 +46,7 @@ const MultiTracking = () => {
 
       const dhlArr: IMultiTrackingDHL[] = [];
       const skynetArr: IMultiTrackingSkynet[] = [];
+      const skynetNewArr: IMultiTrackingSkynet[] = [];
       const fedexArr: IMultiTrackingFedex[] = [];
 
       data.shipmentData.userData.map((item: any) => {
@@ -57,6 +63,24 @@ const MultiTracking = () => {
               if ('Data' in trackingItem) {
                 skynetArr.push({
                   trackingInfo: trackingItem.Data,
+                  userDetails: userDetails,
+                });
+              }
+            });
+            break;
+          case 'SkynetNew':
+            data.shipmentData.trackingData.forEach((trackingItem: any) => {
+              if ('ShipmentHistory' in trackingItem) {
+                skynetNewArr.push({
+                  trackingInfo: trackingItem.ShipmentHistory.map(
+                    (item: any) => {
+                      return {
+                        Status: item?.ShipmentStatus ?? '',
+                        Remarks: item?.ShipmentDetails ?? '',
+                        ShipDate: item?.Date,
+                      };
+                    }
+                  ),
                   userDetails: userDetails,
                 });
               }
@@ -93,6 +117,7 @@ const MultiTracking = () => {
       if (dhlArr.length > 0) setDhlShipmentData(dhlArr);
       if (skynetArr.length > 0) setSkynetShipmentData(skynetArr);
       if (fedexArr.length > 0) setFedexShipmentData(fedexArr);
+      if (skynetNewArr.length > 0) setSkynetNewShipmentData(skynetNewArr);
     } catch (err) {
       console.error(err);
       alert('Something went wrong');
@@ -136,7 +161,10 @@ const MultiTracking = () => {
             skynetShipmentData?.map((shipment, idx) => (
               <>
                 {shipment.userDetails && (
-                  <div className="block text-center items-center">
+                  <div
+                    className="block text-center items-center"
+                    key={idx + 999}
+                  >
                     <h1 className="mt-8 font-semibold text-xl">
                       Consignee Name: {shipment.userDetails.name}
                     </h1>
@@ -182,11 +210,65 @@ const MultiTracking = () => {
                 </table>
               </>
             ))}
+          {skynetNewShipmentData &&
+            skynetNewShipmentData?.map((shipment, idx) => (
+              <>
+                {shipment.userDetails && (
+                  <div
+                    className="block text-center items-center"
+                    key={idx + 999}
+                  >
+                    <h1 className="mt-8 font-semibold text-xl">
+                      Consignee Name: {shipment.userDetails.name}
+                    </h1>
+                    <h1 className="font-semibold text-xl break-words">
+                      Consignee Address: {shipment.userDetails.address}
+                    </h1>
+                    {/* <h1 className="font-semibold text-xl">
+                      Actual Weight: {shipment.userDetails.actualWeight}
+                    </h1>
+                    <h1 className="font-semibold text-xl">
+                      Volumetric Weight: {shipment.userDetails.volWeight}
+                    </h1> */}
+                  </div>
+                )}
+                <table
+                  key={idx}
+                  className="table-auto  w-full border-spacing-6 mt-16 border-2 shadow-lg rounded-md"
+                >
+                  <thead>
+                    <tr>
+                      <th className="py-4 border">Date</th>
+                      <th className="py-4 border">Status</th>
+                      <th className="py-4 border">Remarks</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {shipment.trackingInfo.map((item, idx) => (
+                      <tr key={idx} className=" border ">
+                        <td className="w-1/3 py-4 border text-center">
+                          {item.ShipDate}
+                        </td>
+                        <td className="w-1/3 py-4 border text-center text-black">
+                          {item.Status}
+                        </td>
+                        <td className="w-1/3 py-4 border text-center">
+                          {item.Remarks}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </>
+            ))}
           {dhlShipmentData &&
             dhlShipmentData?.map((shipment, idx) => (
               <>
                 {shipment.userDetails && (
-                  <div className="block text-center items-center">
+                  <div
+                    className="block text-center items-center"
+                    key={idx + 999}
+                  >
                     <h1 className="mt-8 font-semibold text-xl">
                       Consignee Name: {shipment.userDetails.name}
                     </h1>
@@ -236,7 +318,10 @@ const MultiTracking = () => {
             fedexShipmentData?.map((shipment, idx) => (
               <>
                 {shipment.userDetails && (
-                  <div className="block text-center items-center">
+                  <div
+                    className="block text-center items-center"
+                    key={idx + 999}
+                  >
                     <h1 className="mt-8 font-semibold text-xl">
                       Consignee Name: {shipment.userDetails.name}
                     </h1>

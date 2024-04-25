@@ -126,6 +126,7 @@ const AWB = () => {
           <option value="DHL">DHL</option>
           <option value="Skynet">Skynet</option>
           <option value="Fedex">Fedex</option>
+          <option value="SkynetNew">Skynet New</option>
         </select>
         <button
           onClick={handleGenerate}

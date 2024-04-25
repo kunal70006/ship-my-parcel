@@ -11,6 +11,7 @@ import { db } from '../../firebase';
 import dhl from '@/utils/dhl';
 import fedex from '@/utils/fedex';
 import skynet from '@/utils/skynet';
+import skynetNew from '@/utils/skynetNew';
 
 export default async function handler(
   req: NextApiRequest,
@@ -43,6 +44,10 @@ export default async function handler(
       case 'fedex': {
         promiseArr.push(fedex(awbId));
         break;
+      }
+
+      case 'skynetnew': {
+        promiseArr.push(skynetNew(awbId));
       }
       default:
         break;

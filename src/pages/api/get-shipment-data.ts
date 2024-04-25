@@ -5,6 +5,7 @@ import { db } from '../../firebase';
 import dhl from '@/utils/dhl';
 import fedex from '@/utils/fedex';
 import skynet from '@/utils/skynet';
+import skynetNew from '@/utils/skynetNew';
 
 export default async function handler(
   req: NextApiRequest,
@@ -41,6 +42,13 @@ export default async function handler(
         dataFromTrackingService = res.output.completeTrackResults;
         break;
       }
+
+      case 'skynetnew': {
+        const res = await skynetNew(awbId);
+        dataFromTrackingService = res?.ShipmentHistory;
+        break;
+      }
+
       default:
         break;
     }

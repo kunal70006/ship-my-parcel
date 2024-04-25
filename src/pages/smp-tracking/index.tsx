@@ -52,6 +52,17 @@ const SMP = () => {
           setShipmentData(
             data.shipmentData.trackingInfo as IShipmentDataSkynet[]
           );
+        } else if (data.shipmentData.service === 'SkynetNew') {
+          const { trackingInfo } = data.shipmentData;
+          const shipmentDataArr: IShipmentDataSkynet[] = [];
+          (trackingInfo as any[])?.forEach((data) => {
+            shipmentDataArr.push({
+              Status: data?.ShipmentStatus ?? '',
+              Remarks: data?.ShipmentDetails ?? '',
+              ShipDate: data?.Date,
+            });
+          });
+          setShipmentData(shipmentDataArr);
         } else if (data.shipmentData.service === 'DHL') {
           setShipmentData(
             data.shipmentData.trackingInfo[0].events as IShipmentDataDHL[]
@@ -136,10 +147,7 @@ const SMP = () => {
                       return (
                         <tr key={idx} className=" border ">
                           <td className="w-1/3 py-4 border text-center">
-                            {'ShipDate' in item &&
-                              moment(item.ShipDate, 'DD/MM/YYYY').format(
-                                'MMMM DD, YYYY'
-                              )}
+                            {'ShipDate' in item && item.ShipDate}
                           </td>
                           <td className="w-1/3 py-4 border text-center">
                             {'Status' in item && item.Status}
