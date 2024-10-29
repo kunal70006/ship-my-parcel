@@ -136,7 +136,7 @@ const MultiTracking = () => {
           </h1>
           <input
             type="text"
-            className="rounded-md px-4 py-1 text-lg border-2 focus:outline-none shadow-md focus:border-orange-500 transition-colors mb-4 sm:w-1/3 w-full"
+            className="rounded-md px-4 py-1 text-lg border-2 focus:outline-none shadow-md focus:border-amber-500 transition-colors mb-4 sm:w-1/3 w-full"
             placeholder="Enter Tracking Numbers separated by a ,"
             value={ids}
             onChange={(e) => setIds(e.target.value)}
@@ -144,7 +144,7 @@ const MultiTracking = () => {
 
           <div className="flex sm:w-1/3 flex-col sm:flex-row gap-8 sm:gap-0 justify-between">
             <button
-              className="bg-yellow-300 rounded-md py-2 px-4 hover:bg-orange-500 transition-colors hover:text-white disabled:bg-slate-300 disabled:cursor-not-allowed disabled:text-black"
+              className="bg-blue-700 rounded-md py-2 px-4 hover:bg-amber-500 transition-colors hover:text-white disabled:bg-slate-300 disabled:cursor-not-allowed disabled:text-black text-white"
               disabled={ids.length === 0 || isLoading}
               onClick={getShipmentData}
             >
@@ -152,7 +152,7 @@ const MultiTracking = () => {
             </button>
             <button
               onClick={() => router.push('/smp-tracking')}
-              className="bg-yellow-300 rounded-md py-2 px-4 hover:bg-orange-500 transition-colors hover:text-white"
+              className="bg-blue-700 rounded-md text-white py-2 px-4 hover:bg-amber-500 transition-colors hover:text-white"
             >
               Single Track
             </button>

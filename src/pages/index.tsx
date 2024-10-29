@@ -22,7 +22,7 @@ function Home({ urls }: InferGetStaticPropsType<typeof getStaticProps>) {
       />
       <Script
         async
-        src="https://api.countapi.xyz/hit/shipmyparcel.co.in/4be4f751-d651-48f6-ac0c-7f20790aa8e0?callback=websiteVisits"
+        src="https://api.countapi.xyz/hit/ShipEzy.co.in/4be4f751-d651-48f6-ac0c-7f20790aa8e0?callback=websiteVisits"
       />
 
       <Script id="track-visits" strategy="afterInteractive">
@@ -31,13 +31,13 @@ function Home({ urls }: InferGetStaticPropsType<typeof getStaticProps>) {
         }`}
       </Script>
       <Head>
-        <title>Ship My Parcel</title>
+        <title>ShipEzy</title>
         <meta
           name="description"
           content="Delivering Happiness to you!"
           key="desc"
         />
-        <meta property="og:title" content="Ship My Parcel" />
+        <meta property="og:title" content="ShipEzy" />
         <meta
           property="og:description"
           content="Delivering Happiness to you!"

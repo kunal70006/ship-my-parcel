@@ -28,7 +28,7 @@ const ContactUs = () => {
             className="w-full rounded-md border-[0.5px] shadow-md p-2 mb-2 lg:mb-10 h-[100px]"
             placeholder="Your Query"
           />
-          <button className="shadow-md w-full text-center p-2 rounded-md bg-yellow-300 text-black hover:bg-white hover:text-[#1D4695]">
+          <button className="shadow-md w-full text-center p-2 rounded-md bg-blue-700 text-white hover:bg-white hover:text-[#1D4695]">
             Submit
           </button>
         </div>

@@ -130,7 +130,7 @@ const AWB = () => {
         </select>
         <button
           onClick={handleGenerate}
-          className="bg-yellow-300 rounded-md py-2 px-4 hover:bg-orange-500 transition-colors hover:text-white disabled:bg-slate-300 disabled:cursor-not-allowed disabled:text-black"
+          className="bg-blue-700 rounded-md py-2 px-4 hover:bg-orange-500 transition-colors hover:text-white disabled:bg-slate-300 disabled:cursor-not-allowed disabled:text-black"
           disabled={
             isLoading ||
             info.id.length === 0 ||
@@ -146,7 +146,7 @@ const AWB = () => {
             <h2 className="text-lg mt-4">Tracking URL: {trackingURL}</h2>
             <button
               onClick={() => navigator.clipboard.writeText(trackingURL)}
-              className="bg-yellow-300 rounded-md py-2 px-4 hover:bg-orange-500 transition-colors hover:text-white disabled:bg-slate-300 disabled:cursor-not-allowed disabled:text-black mt-4"
+              className="bg-blue-700 rounded-md py-2 px-4 hover:bg-orange-500 transition-colors hover:text-white disabled:bg-slate-300 disabled:cursor-not-allowed disabled:text-black mt-4"
             >
               Copy URL
             </button>

@@ -5,10 +5,10 @@ const Privacy = () => {
         Privacy Policy
       </h1>
       <p className="mt-10 text-md lg:text-lg">
-        This Privacy Policy outlines ShipMyParcel&apos;s approach to Data
-        Protection and Privacy to fulfil its obligations under the applicable
-        laws and regulations. This Privacy Policy applies to your Personal Data
-        which is processed by us, whether in physical or electronic mode.
+        This Privacy Policy outlines ShipEzy&apos;s approach to Data Protection
+        and Privacy to fulfil its obligations under the applicable laws and
+        regulations. This Privacy Policy applies to your Personal Data which is
+        processed by us, whether in physical or electronic mode.
         <br />
         <br />
         In this Privacy Policy, the expressions &apos;Personal Data&apos;,
@@ -21,22 +21,22 @@ const Privacy = () => {
         that you know exactly what we do with your Personal Data.
         <br />
         <br />
-        Throughout this document, “we”, “us”, “our”, “ours” refer to
-        ShipMyParcel. Wherever we have said &apos;you&apos; or &apos;your&apos;,
-        this means YOU
+        Throughout this document, “we”, “us”, “our”, “ours” refer to ShipEzy.
+        Wherever we have said &apos;you&apos; or &apos;your&apos;, this means
+        YOU
         <br />
         <br />
         <h1 className="text-center font-semibold text-md lg:text-xl">
           WHO WE ARE
         </h1>
         <br />
-        ShipMyParcel is a company incorporated and registered in India.
-        ShipMyParcel is engaged in the business of facilitating selling,
-        marketing and retailing products (“Business”) through the e-commerce
-        websites and mobile applications (“App”) both developed and owned by
-        ShipMyParcel and/or its parent company, and/or its affiliates (Website
-        and App collectively referred to as “Platform”) or offline stores /
-        events to conduct its Business.
+        ShipEzy is a company incorporated and registered in India. ShipEzy is
+        engaged in the business of facilitating selling, marketing and retailing
+        products (“Business”) through the e-commerce websites and mobile
+        applications (“App”) both developed and owned by ShipEzy and/or its
+        parent company, and/or its affiliates (Website and App collectively
+        referred to as “Platform”) or offline stores / events to conduct its
+        Business.
         <br />
         <br />
         <h1 className="text-center font-semibold text-md lg:text-xl">
@@ -62,7 +62,7 @@ const Privacy = () => {
         <br />
         <br />
         <h1 className="text-center font-semibold text-md lg:text-xl">
-          PERSONAL INFORMATION GATHERED BY ShipMyParcel
+          PERSONAL INFORMATION GATHERED BY ShipEzy
         </h1>
         <br />
         <br />
@@ -70,21 +70,21 @@ const Privacy = () => {
         used to register you, verify your identity to permit you to use the app,
         undertake transactions (including to facilitate and process payments),
         communicate with you, convey any promotional offers, services or updates
-        associated with ShipMyParcel, and generally maintain your accounts with
-        us. We also use this information to customize your experience and
-        improve ShipMyParcel.
+        associated with ShipEzy, and generally maintain your accounts with us.
+        We also use this information to customize your experience and improve
+        ShipEzy.
         <br />
         <br />
         <h1 className="text-center font-semibold text-md lg:text-xl">
           INFORMATION YOU GIVE US:
         </h1>
         <br />
-        We receive and store any information you provide while using
-        ShipMyParcel or give us in any other way. You can choose not to provide
-        certain information, but then you might not be able to use ShipMyParcel.
-        We use the information that you provide for such purposes as opening
-        your account, processing your transactions, responding to your requests,
-        and communicating with you
+        We receive and store any information you provide while using ShipEzy or
+        give us in any other way. You can choose not to provide certain
+        information, but then you might not be able to use ShipEzy. We use the
+        information that you provide for such purposes as opening your account,
+        processing your transactions, responding to your requests, and
+        communicating with you
         <br />
         <br />
         <h1 className="text-center font-semibold text-md lg:text-xl">
@@ -164,12 +164,12 @@ const Privacy = () => {
         <br />
         <br />
         <h1 className="text-center font-semibold text-md lg:text-xl">
-          PROVIDE, TROUBLESHOOT, AND IMPROVE ShipMyParcel
+          PROVIDE, TROUBLESHOOT, AND IMPROVE ShipEzy
         </h1>
         <br />
         We use your personal information to provide functionality, analyze
         performance, fix errors, and improve the usability and effectiveness of
-        the ShipMyParcel.
+        the ShipEzy.
         <br />
         <br />
         <h1 className="text-center font-semibold text-md lg:text-xl">
@@ -178,7 +178,7 @@ const Privacy = () => {
         <br />
         We use your personal information to recommend features, products, and
         services that might be of interest to you, identify your preferences,
-        and personalize your experience with ShipMyParcel.
+        and personalize your experience with ShipEzy.
         <br />
         <br />
         <h1 className="text-center font-semibold text-md lg:text-xl">
@@ -186,7 +186,7 @@ const Privacy = () => {
         </h1>
         <br />
         We use your personal information to communicate with you in relation to
-        ShipMyParcel via different channels (e.g., by phone, e-mail, chat).
+        ShipEzy via different channels (e.g., by phone, e-mail, chat).
         <br />
         <br />
         <h1 className="text-center font-semibold text-md lg:text-xl">

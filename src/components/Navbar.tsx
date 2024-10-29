@@ -12,7 +12,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      <div className="flex bg-yellow-300 justify-between px-8 py-2 items-center">
+      <div className="flex bg-blue-700 justify-between px-8 py-2 items-center text-white">
         <Link href="/">
           <Image src="/logo.png" alt="logo" height={96} width={96} />
         </Link>
@@ -21,8 +21,8 @@ const Navbar = () => {
             <Link href="/">
               <button
                 className={`${
-                  router.pathname === '/' && 'underline text-orange-500'
-                } hover:underline underline-offset-8 hover:text-orange-500 transition-colors pt-2`}
+                  router.pathname === '/' && 'underline text-white'
+                } hover:underline underline-offset-8 hover:text-white transition-colors pt-2`}
               >
                 Home
               </button>
@@ -30,8 +30,8 @@ const Navbar = () => {
             <Link href="/about">
               <button
                 className={`${
-                  router.pathname === '/about' && 'underline text-orange-500'
-                } hover:underline underline-offset-8 hover:text-orange-500 transition-colors pt-2`}
+                  router.pathname === '/about' && 'underline text-white'
+                } hover:underline underline-offset-8 hover:text-white transition-colors pt-2`}
               >
                 About us
               </button>
@@ -39,8 +39,8 @@ const Navbar = () => {
             <Link href="/features">
               <button
                 className={`${
-                  router.pathname === '/features' && 'underline text-orange-500'
-                } hover:underline underline-offset-8 hover:text-orange-500 transition-colors pt-2`}
+                  router.pathname === '/features' && 'underline text-white'
+                } hover:underline underline-offset-8 hover:text-white transition-colors pt-2`}
               >
                 Features
               </button>
@@ -48,42 +48,46 @@ const Navbar = () => {
             <Link href="/contact">
               <button
                 className={`${
-                  router.pathname === '/contact' && 'underline text-orange-500'
-                } hover:underline underline-offset-8 hover:text-orange-500 transition-colors pt-2`}
+                  router.pathname === '/contact' && 'underline text-white'
+                } hover:underline underline-offset-8 hover:text-white transition-colors pt-2`}
               >
                 Contact
               </button>
             </Link>
 
-            <Link href="/rate-card">
+            {/* <Link href="/rate-card">
               <button
                 className={`${
-                  router.pathname === '/rate-card' &&
-                  'underline text-orange-500'
-                } hover:underline underline-offset-8 hover:text-orange-500 transition-colors pt-2`}
+                  router.pathname === '/rate-card' && 'underline text-white'
+                } hover:underline underline-offset-8 hover:text-white transition-colors pt-2`}
               >
                 Rate Card
               </button>
-            </Link>
+            </Link> */}
 
             <Link href="/smp-tracking">
-              <button className="bg-white rounded-md py-2 px-4 hover:bg-orange-500 transition-colors hover:text-white">
+              <button className="bg-white text-black rounded-md py-2 px-4 ">
                 SMP Tracking
               </button>
             </Link>
           </div>
         ) : (
-          <Hamburger size={24} toggled={isOpen} toggle={setIsOpen} />
+          <Hamburger
+            size={24}
+            toggled={isOpen}
+            toggle={setIsOpen}
+            color="white"
+          />
         )}
       </div>
       {isOpen && (
-        <div className="absolute z-[99999] h-[90vh] w-full bg-yellow-300 flex flex-col items-center text-center justify-around overflow-hidden">
+        <div className="absolute z-[99999] h-[90vh] w-full text-white bg-blue-700 flex flex-col items-center text-center justify-around overflow-hidden">
           <div className="flex flex-col gap-y-6 text-lg">
             <Link href="/">
               <button
                 className={`${
-                  router.pathname === '/' && 'underline text-orange-500'
-                } hover:underline underline-offset-8 hover:text-orange-500 transition-colors pt-2`}
+                  router.pathname === '/' && 'underline text-white'
+                } hover:underline underline-offset-8 hover:text-white transition-colors pt-2`}
               >
                 Home
               </button>
@@ -91,8 +95,8 @@ const Navbar = () => {
             <Link href="/about">
               <button
                 className={`${
-                  router.pathname === '/about' && 'underline text-orange-500'
-                } hover:underline underline-offset-8 hover:text-orange-500 transition-colors pt-2`}
+                  router.pathname === '/about' && 'underline text-white'
+                } hover:underline underline-offset-8 hover:text-white transition-colors pt-2`}
               >
                 About us
               </button>
@@ -100,8 +104,8 @@ const Navbar = () => {
             <Link href="/features">
               <button
                 className={`${
-                  router.pathname === '/features' && 'underline text-orange-500'
-                } hover:underline underline-offset-8 hover:text-orange-500 transition-colors pt-2`}
+                  router.pathname === '/features' && 'underline text-white'
+                } hover:underline underline-offset-8 hover:text-white transition-colors pt-2`}
               >
                 Features
               </button>
@@ -109,26 +113,25 @@ const Navbar = () => {
             <Link href="/contact">
               <button
                 className={`${
-                  router.pathname === '/contact' && 'underline text-orange-500'
-                } hover:underline underline-offset-8 hover:text-orange-500 transition-colors pt-2`}
+                  router.pathname === '/contact' && 'underline text-white'
+                } hover:underline underline-offset-8 hover:text-white transition-colors pt-2`}
               >
                 Contact
               </button>
             </Link>
 
-            <Link href="/rate-card">
+            {/* <Link href="/rate-card">
               <button
                 className={`${
-                  router.pathname === '/rate-card' &&
-                  'underline text-orange-500'
-                } hover:underline underline-offset-8 hover:text-orange-500 transition-colors pt-2`}
+                  router.pathname === '/rate-card' && 'underline text-white'
+                } hover:underline underline-offset-8 hover:text-white transition-colors pt-2`}
               >
                 Rate Card
               </button>
-            </Link>
+            </Link> */}
 
             <Link href="/smp-tracking">
-              <button className="bg-white rounded-md py-2 px-4 hover:bg-orange-500 transition-colors hover:text-white">
+              <button className="bg-white text-black rounded-md py-2 px-4">
                 SMP Tracking
               </button>
             </Link>

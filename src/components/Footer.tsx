@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const Footer = () => {
   return (
-    <div className="flex flex-col sm:flex-row gap-x-8 min-h-[40vh] p-8 bg-yellow-300 justify-between">
+    <div className="flex flex-col sm:flex-row gap-x-8 min-h-[40vh] p-8 text-white bg-blue-700 justify-between">
       <div className="sm:w-1/3 mt-16">
         <Image
           src="/logo.png"
@@ -14,10 +14,10 @@ const Footer = () => {
         />
 
         <p className="">
-          ShipMyParcel is global shipping service that allows you to send
-          business packages, important documents, e-commerce orders, or simply
-          love l etter to your partner - around the world at rates you&apos;ll
-          simply love.
+          ShipEzy is global shipping service that allows you to send business
+          packages, important documents, e-commerce orders, or simply love l
+          etter to your partner - around the world at rates you&apos;ll simply
+          love.
         </p>
       </div>
 
@@ -31,8 +31,8 @@ const Footer = () => {
         /> */}
         <div className="grow lg:hidden"></div>
         <h2 className="text-2xl mb-2">Contact</h2>
-        <p>Mobile: +918448668558</p>
-        <p>Address: Wz-182/183, Krishna Park, Delhi-110018</p>
+        <p>Mobile: +919266911194, +919266911195</p>
+        <p>Address: Address: Plot Number 174, Pratap Nagar, Delhi-110064</p>
       </div>
       <div className="sm:w-1/3 mt-16 flex flex-col sm:items-end ">
         <h2 className="text-2xl mb-2">Information</h2>

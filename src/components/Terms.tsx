@@ -9,8 +9,8 @@ const Terms = () => {
           SERVICES OVERVIEW
         </h1>
         <br />
-        As part of the registration process on the Site, ShipMyParcel Solutions
-        may collect the following personally identifiable information about you:
+        As part of the registration process on the Site, ShipEzy Solutions may
+        collect the following personally identifiable information about you:
         Name including first and last name, email address, mobile phone number
         and contact details, Postal code etc. Demographic profile (like your
         age, gender, occupation, education, address etc.) and information about
@@ -30,10 +30,10 @@ const Terms = () => {
         the Privacy Policy shall also govern your visit and use of the Site.
         Your continued use of the Site implies that you have read and accepted
         the Privacy Policy and agree to be bound by its terms and conditions.
-        You consent to the use of personal information by ShipMyParcel Solutions
-        in accordance with the terms of and purposes set forth in the Privacy
+        You consent to the use of personal information by ShipEzy Solutions in
+        accordance with the terms of and purposes set forth in the Privacy
         Policy, the same may be subject to amendment from time to time at the
-        sole discretion of ShipMyParcel Solutions.
+        sole discretion of ShipEzy Solutions.
         <br />
         <br />
         <h1 className="mt-10 font-semibold text-md lg:text-xl">Eligibility</h1>
@@ -59,18 +59,18 @@ const Terms = () => {
         <h1 className="mt-10 font-semibold text-md lg:text-xl">Pricing</h1>
         <br />
         <br />
-        ShipMyParcel Solutions strives to provide accurate product and pricing
+        ShipEzy Solutions strives to provide accurate product and pricing
         information, however errors may occur. All the products listed on the
         Site will be sold at MRP unless otherwise specified. In the event that
-        an item is wrongly priced, ShipMyParcel Solutions may, at its
-        discretion, either contact you for instructions or cancel your order and
-        notify you of such cancellation. Unless the product ordered by you has
-        been delivered and the services are availed, your offer will not be
-        deemed accepted and ShipMyParcel Solutions will have the right to modify
-        the price of the product/ service and contact you for further
-        instructions using the e-mail address provided by you during the time of
-        registration or placing of order, or cancel the order and notify you of
-        such cancellation.
+        an item is wrongly priced, ShipEzy Solutions may, at its discretion,
+        either contact you for instructions or cancel your order and notify you
+        of such cancellation. Unless the product ordered by you has been
+        delivered and the services are availed, your offer will not be deemed
+        accepted and ShipEzy Solutions will have the right to modify the price
+        of the product/ service and contact you for further instructions using
+        the e-mail address provided by you during the time of registration or
+        placing of order, or cancel the order and notify you of such
+        cancellation.
         <br />
         <br />
         <h1 className="mt-10 font-semibold text-md lg:text-xl">
@@ -80,31 +80,31 @@ const Terms = () => {
         <br />
         That in the event that a non-delivery occurs on account of a mistake by
         you (i.e. wrong name or address or any other wrong information) any
-        extra cost incurred by ShipMyParcel Solutions for redelivery shall be
-        claimed from you. That you will use the services provided by the Site,
-        its affiliates, consultants and contracted companies, for lawful
-        purposes only and comply with all applicable laws and regulations while
-        using and transacting on the Site. You will provide authentic and true
-        information in all instances where such information is requested of you.
-        ShipMyParcel Solutions reserves the right to confirm and validate the
-        information and other details provided by you at any point of time. If
-        upon confirmation your details are found not to be true (wholly or
-        partly), ShipMyParcel Solutions has the right in its sole discretion to
-        reject the registration and debar you from using the Services and / or
-        other affiliated websites without prior intimation whatsoever. That you
-        are accessing the services available on this Site and transacting at
-        your sole risk and are using your best and prudent judgment before
-        entering into any transaction through this Site. That the address at
-        which delivery of the product ordered by you is to be made will be
-        correct and proper in all respects. That before placing an order you
-        will check the product description carefully. By placing an order for a
-        product, you agree to be bound by the conditions of sale included in the
-        item’s description. You may not use the Site for any of the following
-        purposes: Disseminating any unlawful, harassing, libelous, abusive,
-        threatening, harmful, vulgar, obscene, or otherwise objectionable
-        material. Transmitting material that encourages conduct that constitutes
-        a criminal offence or results in civil liability or otherwise breaches
-        any relevant laws, regulations or code of practice. Gaining unauthorized
+        extra cost incurred by ShipEzy Solutions for redelivery shall be claimed
+        from you. That you will use the services provided by the Site, its
+        affiliates, consultants and contracted companies, for lawful purposes
+        only and comply with all applicable laws and regulations while using and
+        transacting on the Site. You will provide authentic and true information
+        in all instances where such information is requested of you. ShipEzy
+        Solutions reserves the right to confirm and validate the information and
+        other details provided by you at any point of time. If upon confirmation
+        your details are found not to be true (wholly or partly), ShipEzy
+        Solutions has the right in its sole discretion to reject the
+        registration and debar you from using the Services and / or other
+        affiliated websites without prior intimation whatsoever. That you are
+        accessing the services available on this Site and transacting at your
+        sole risk and are using your best and prudent judgment before entering
+        into any transaction through this Site. That the address at which
+        delivery of the product ordered by you is to be made will be correct and
+        proper in all respects. That before placing an order you will check the
+        product description carefully. By placing an order for a product, you
+        agree to be bound by the conditions of sale included in the item’s
+        description. You may not use the Site for any of the following purposes:
+        Disseminating any unlawful, harassing, libelous, abusive, threatening,
+        harmful, vulgar, obscene, or otherwise objectionable material.
+        Transmitting material that encourages conduct that constitutes a
+        criminal offence or results in civil liability or otherwise breaches any
+        relevant laws, regulations or code of practice. Gaining unauthorized
         access to other computer systems. Interfering with any other person’s
         use or enjoyment of the Site. Breaching any applicable laws; Interfering
         or disrupting networks or websites connected to the Site. Making,
@@ -121,17 +121,17 @@ const Terms = () => {
         Shipping carriers are only liable to file for loss shipments and are
         obligated to compensate as per the minimum liability of loss (100 USD)
         or the invoice value, whichever is lower. In case of any mishap,
-        <b> ShipMyParcel IS NOT LIABLE</b> for compensation. Duties and taxes
-        are the responsibility of the receiver, if applicable. Address
-        correction charges are to be paid by the receiver in case of mistakes or
-        wrong details provided. Customers are responsible for paying storage
-        charges in case of delays caused by any reason.{' '}
-        <b>ShipMyParcel IS NOT LIABLE</b> in case of any misdeclaration of items
-        by customers, leading to possible delays or customs issues. Additional
-        charges such as AAI charges, demurrage charges, DO charges, terminal
-        charges, and custom duty are extra and must be paid by the
-        consignee/receiver once the shipment reaches the destination.
-        ShipMyParcel is not responsible for covering these charges.
+        <b> ShipEzy IS NOT LIABLE</b> for compensation. Duties and taxes are the
+        responsibility of the receiver, if applicable. Address correction
+        charges are to be paid by the receiver in case of mistakes or wrong
+        details provided. Customers are responsible for paying storage charges
+        in case of delays caused by any reason. <b>ShipEzy IS NOT LIABLE</b> in
+        case of any misdeclaration of items by customers, leading to possible
+        delays or customs issues. Additional charges such as AAI charges,
+        demurrage charges, DO charges, terminal charges, and custom duty are
+        extra and must be paid by the consignee/receiver once the shipment
+        reaches the destination. ShipEzy is not responsible for covering these
+        charges.
         <br />
         <br />
         <h1 className="mt-10 font-semibold text-md lg:text-xl">
@@ -139,9 +139,9 @@ const Terms = () => {
         </h1>
         <br />
         <br />
-        ShipMyParcel Solutions may at any time modify the Terms & Conditions of
-        Use of the Website without any prior notification to you. You can access
-        the latest version of these Terms & Conditions at any given time on the
+        ShipEzy Solutions may at any time modify the Terms & Conditions of Use
+        of the Website without any prior notification to you. You can access the
+        latest version of these Terms & Conditions at any given time on the
         Site. You should regularly review the Terms & Conditions on the Site. In
         the event the modified Terms & Conditions is not acceptable to you, you
         should discontinue using the Service. However, if you continue to use
@@ -161,25 +161,25 @@ const Terms = () => {
         courts located in Delhi, India for the resolution of any disputes.
         <br />
         <br />
-        Copyright & Trademark The ShipMyParcel Solutions name and logo and all
+        Copyright & Trademark The ShipEzy Solutions name and logo and all
         related product and service names, design marks and slogans are the
         trademarks, logos or service marks (hereinafter referred to as “Marks“)
-        of ShipMyParcel Solutions. Access to this Site does not authorize anyone
-        to use any Marks in any manner. Marks displayed on this Site, whether
-        registered or unregistered, of ShipMyParcel Solutions, are the
-        intellectual property. Our Partners including but not limited to our
-        delivery partners, destination partners, strategic partnership and our
+        of ShipEzy Solutions. Access to this Site does not authorize anyone to
+        use any Marks in any manner. Marks displayed on this Site, whether
+        registered or unregistered, of ShipEzy Solutions, are the intellectual
+        property. Our Partners including but not limited to our delivery
+        partners, destination partners, strategic partnership and our
         serviceable platforms & locations/warehouses are the respective owners
         of their trademarks & intellectual property registered or unregistered.
         <br />
         <br />
-        Indemnity You agree to defend, indemnify and hold harmless ShipMyParcel
+        Indemnity You agree to defend, indemnify and hold harmless ShipEzy
         Solutions its employees, directors, officers, agents and their
         successors and assigns from and against any and all claims, liabilities,
         damages, losses, costs and expenses, including attorney’s fees, caused
         by or arising out of claims based upon your actions or inactions, which
-        may result in any loss or liability to ShipMyParcel Solutions. or any
-        third party including but not limited to breach of any warranties,
+        may result in any loss or liability to ShipEzy Solutions. or any third
+        party including but not limited to breach of any warranties,
         representations or undertakings or in relation to the non-fulfilment of
         any of your obligations under this User Agreement or arising out of the
         your violation of any applicable laws, regulations including but not
@@ -191,18 +191,18 @@ const Terms = () => {
         <br />
         <br />
         Termination These Terms of Use are effective unless and until terminated
-        by either you or ShipMyParcel Solutions. You may terminate the Terms of
-        Use at any time, provided that you discontinue any further use of this
-        Site. ShipMyParcel Solutions may terminate the Terms of Use at any time
-        and may do so without notice, and accordingly deny you access to the
-        Site, such termination will be without any liability to the Site. Upon
-        any termination of the Terms of Use by either you or ShipMyParcel
-        Solutions, you must promptly destroy all materials downloaded or
-        otherwise obtained from this Site, as well as all copies of such
-        materials, whether made under the Terms of Use or otherwise. Any such
-        termination of the Terms of Use shall not cancel your obligation to pay
-        for the product already ordered from the Site or affect any liability
-        that may have arisen under the Terms of Use.
+        by either you or ShipEzy Solutions. You may terminate the Terms of Use
+        at any time, provided that you discontinue any further use of this Site.
+        ShipEzy Solutions may terminate the Terms of Use at any time and may do
+        so without notice, and accordingly deny you access to the Site, such
+        termination will be without any liability to the Site. Upon any
+        termination of the Terms of Use by either you or ShipEzy Solutions, you
+        must promptly destroy all materials downloaded or otherwise obtained
+        from this Site, as well as all copies of such materials, whether made
+        under the Terms of Use or otherwise. Any such termination of the Terms
+        of Use shall not cancel your obligation to pay for the product already
+        ordered from the Site or affect any liability that may have arisen under
+        the Terms of Use.
       </div>
     </div>
   );

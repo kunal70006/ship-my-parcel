@@ -6,7 +6,7 @@ const Features = () => {
   return (
     <div
       className={`flex flex-col min-h-screen ${
-        router.pathname === '/' ? 'bg-yellow-300' : 'bg-white'
+        router.pathname === '/' ? 'bg-blue-700 text-white' : 'bg-white'
       } py-24`}
     >
       <h1 className="text-4xl mb-8 font-semibold text-center">Features</h1>

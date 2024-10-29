@@ -17,7 +17,7 @@ const AboutUs = () => {
           packages, important documents, e-commerce orders, or simply love
           letters to your partners - around the world at rates you&apos;ll
           simply love. Backed by our strong network and industry experience,
-          ShipMyParcel offers a complete range of cross-border shipping services
+          ShipEzy offers a complete range of cross-border shipping services
           covering more than 220 countries across the globe. With economical
           shipping options and reliable transit times, we offer complete
           visibility of the parcel&apos;s journey and take care of all the
@@ -35,9 +35,11 @@ const AboutUs = () => {
             <h1 className="text-4xl font-semibold mb-8 mt-8 sm:mt-0">
               Contact
             </h1>
-            <p className="font-semibold text-xl">Mobile: +918448668558</p>
             <p className="font-semibold text-xl">
-              Address: Wz-182/183, Krishna Park, Delhi-110018
+              Mobile: +919266911194, +919266911195
+            </p>
+            <p className="font-semibold text-xl">
+              Address: Plot Number 174, Pratap Nagar, Delhi-110064
             </p>
           </div>
         </div>
