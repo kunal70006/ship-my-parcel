@@ -67,7 +67,7 @@ const Navbar = () => {
 
             <Link href="/smp-tracking">
               <button className="bg-white text-black rounded-md py-2 px-4 ">
-                SMP Tracking
+                SZ Tracking
               </button>
             </Link>
           </div>
@@ -132,7 +132,7 @@ const Navbar = () => {
 
             <Link href="/smp-tracking">
               <button className="bg-white text-black rounded-md py-2 px-4">
-                SMP Tracking
+                SZ Tracking
               </button>
             </Link>
             {/* <Link href="/awb-tracking">
