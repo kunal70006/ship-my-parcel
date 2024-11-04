@@ -41,9 +41,7 @@ const AWB = () => {
       if (res.status === 200) {
         const data = await res.json();
         setID(data.smpID);
-        setTrackingURL(
-          `https://www.shipmyparcel.co.in/smp-tracking/${data.smpID}`
-        );
+        setTrackingURL(`https://shipezy.co.in/smp-tracking/${data.smpID}`);
       }
     } catch (err) {
       console.error(err);
@@ -127,6 +125,7 @@ const AWB = () => {
           <option value="Skynet">Skynet</option>
           <option value="Fedex">Fedex</option>
           <option value="SkynetNew">Skynet New</option>
+          <option value="atlantic">Atlantic</option>
         </select>
         <button
           onClick={handleGenerate}

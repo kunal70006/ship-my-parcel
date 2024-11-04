@@ -6,6 +6,7 @@ import dhl from '@/utils/dhl';
 import fedex from '@/utils/fedex';
 import skynet from '@/utils/skynet';
 import skynetNew from '@/utils/skynetNew';
+import atlantic from '@/utils/atlantic';
 
 export default async function handler(
   req: NextApiRequest,
@@ -46,6 +47,12 @@ export default async function handler(
       case 'skynetnew': {
         const res = await skynetNew(awbId);
         dataFromTrackingService = res?.ShipmentHistory;
+        break;
+      }
+
+      case 'atlantic': {
+        const res = await atlantic(awbId);
+        dataFromTrackingService = res;
         break;
       }
 
