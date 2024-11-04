@@ -4,13 +4,13 @@ const Layout = ({ children }: any) => {
   return (
     <>
       <Head>
-        <title>Ship My Parcel</title>
+        <title>Shipezy</title>
         <meta
           name="description"
           content="Delivering Happiness to you!"
           key="desc"
         />
-        <meta property="og:title" content="Ship My Parcel" />
+        <meta property="og:title" content="Shipezy" />
         <meta
           property="og:description"
           content="Delivering Happiness to you!"
