@@ -151,7 +151,7 @@ const MultiTracking = () => {
               Track Now
             </button>
             <button
-              onClick={() => router.push('/smp-tracking')}
+              onClick={() => router.push('/szy-tracking')}
               className="bg-blue-700 rounded-md text-white py-2 px-4 hover:bg-amber-500 transition-colors hover:text-white"
             >
               Single Track

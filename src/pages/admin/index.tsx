@@ -20,7 +20,7 @@ const AWB = () => {
   const [trackingURL, setTrackingURL] = useState('');
 
   const handleGenerate = async () => {
-    const trackingId = `SMP${uuid().substring(0, 8)}`;
+    const trackingId = `SZY${uuid().substring(0, 8)}`;
     try {
       setIsLoading(true);
       const res = await fetch('/api/generate-tracking-id', {
@@ -41,7 +41,7 @@ const AWB = () => {
       if (res.status === 200) {
         const data = await res.json();
         setID(data.smpID);
-        setTrackingURL(`https://shipezy.co.in/smp-tracking/${data.smpID}`);
+        setTrackingURL(`https://shipezy.co.in/szy-tracking/${data.smpID}`);
       }
     } catch (err) {
       console.error(err);
